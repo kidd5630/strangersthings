@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import {
-    // Allposts,
-    // Login,
+    Login,
     // Myposts,
-    // Profile,
-    // Register,
-    Title
+    Profile,
+    Register,
+    Title,
+    Allposts
   } from './components';
 
 const App = () => {
@@ -17,8 +17,24 @@ const App = () => {
     const [user, setUser] = useState('') 
     return (<Router>
         <div className="app">
-        <Title />
-        {/* <Route path="/login"><Login /></Route> */}
+        <Title 
+        user= {user} />
+        {
+        user?<>
+        <Switch>
+        <Route path="/profile"><Profile /></Route>
+        <Route  path="/posts"><Allposts /></Route>
+        </Switch>
+        </>:
+        <>
+        <Switch>
+        <Route path="/register"><Register /></Route>
+        <Route path="/login"><Login /></Route>
+        <Route exact path="/"><Allposts /></Route>
+        </Switch>
+        </>
+        }
+        
 
         </div>
     </Router>)
