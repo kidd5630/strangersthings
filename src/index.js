@@ -11,8 +11,12 @@ import {
     Allposts
   } from './components';
 
+// import {
+//     fetchAllPosts
+// } from './api';
+
 const App = () => {
-    const [posts, setPosts]= useState([])
+    const [allPosts, setAllPosts]= useState([])
     const [myPosts, setMyPosts] = useState([])
     const [user, setUser] = useState('') 
     return (<Router>
@@ -23,7 +27,11 @@ const App = () => {
         user?<>
         <Switch>
         <Route path="/profile"><Profile /></Route>
-        <Route  path="/posts"><Allposts /></Route>
+        <Route  path="/posts">
+        <Allposts allPosts={allPosts}
+            setAllPosts={setAllPosts}
+        />
+        </Route>
         </Switch>
         </>:
         <>
