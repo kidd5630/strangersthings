@@ -1,4 +1,5 @@
 import React, { useEffect, useState }from 'react';
+import Aside from "./Aside";
 
 import {
     BASE_URL,
@@ -18,6 +19,7 @@ const Allposts = (props) => {
     console.log(allPosts)
 
     return (
+        <>
         <div id="allposts">
          {allPosts.map(post => {
            return <div key={post._id}>
@@ -30,6 +32,8 @@ const Allposts = (props) => {
          })
         }
         </div>
+        <Aside />
+        </>
     )
 
 
