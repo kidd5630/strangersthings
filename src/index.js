@@ -16,9 +16,13 @@ import {
 // } from './api';
 
 const App = () => {
-    const [allPosts, setAllPosts]= useState([])
-    const [myPosts, setMyPosts] = useState([])
-    const [user, setUser] = useState('') 
+    const [allPosts, setAllPosts]= useState([]);
+    const [myPosts, setMyPosts] = useState([]);
+    const [user, setUser] = useState(false); 
+    const [userToken, setUserToken] = useState('');
+
+console.log("user", user) 
+
     return (<Router>
         <div className="app">
         <Title 
@@ -36,9 +40,15 @@ const App = () => {
         </>:
         <>
         <Switch>
-        <Route path="/register"><Register /></Route>
+        <Route path="/register">
+            <Register 
+                setUser={setUser}
+                setUserToken={setUserToken}
+                />
+            </Route>
         <Route path="/login"><Login /></Route>
         <Route exact path="/"><Allposts /></Route>
+
         </Switch>
         </>
         }

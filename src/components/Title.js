@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 const Title = ({user}) => (
 
     <div id="title">
-        <h1>
+       <Link to="/"><h1>
             Stranger's Things
-        </h1>
+        </h1> </Link> 
         {user? <nav>
             <ul>
             <Link to="/profile">
