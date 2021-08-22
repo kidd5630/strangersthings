@@ -1,5 +1,6 @@
 import React, { useEffect, useState }from 'react';
 import Aside from "./Aside";
+import MakePosts from "./MakePosts";
 
 import {
     BASE_URL,
@@ -32,6 +33,7 @@ const Allposts = ({userToken}) => {
          })
         }
         </div>
+        <MakePosts />
         </>
     )}else{
         return (

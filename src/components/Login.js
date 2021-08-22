@@ -1,6 +1,46 @@
 import React from 'react';
 
-const Login = () => {
+import { Redirect } from "react-router-dom";
+
+import {
+    BASE_URL,
+    fetchLoginUser
+} from '../api';
+
+const Login = ({setMyPassword, myPassword, setMyUsername, myUsername, setUserToken}) => {
+
+    async function loginUser(event) {
+        event.preventDefault();
+
+        try {
+            const results = await fetchLoginUser(BASE_URL, myUsername, myPassword);
+            console.log("token", results.data.token)
+            console.log("username", myUsername)
+            const token = await results.data.token
+            setUserToken(token)
+            localStorage.setItem('userToken', JSON.stringify(token));
+            return <Redirect to="/posts" />
+          
+        }catch(error) {
+            console.error(error)
+        }
+        
+    }
+
+    return (
+        <section>
+            <h1>Login</h1>
+                <form onSubmit={loginUser}>
+                    <div>
+                        <input type="text" placeholder="Username" onChange={(event) => {setMyUsername(event.target.value)}} required/>
+                     </div>
+                    <div>
+                        <input type="text" placeholder="Password" onChange={(event) => {setMyPassword(event.target.value)}} required/>
+                    </div>
+                    <button type="submit">LOGIN</button>
+                </form>
+        </section>
+        )
     
 }
 export default Login; 
