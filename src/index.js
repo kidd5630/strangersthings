@@ -21,13 +21,13 @@ const App = () => {
     const [user, setUser] = useState(false); 
     const [userToken, setUserToken] = useState('');
 
-
+    
     return (<Router>
         <div className="app">
         <Title 
-        user= {user} />
+        userToken= {userToken} />
         {
-        user?<>
+        userToken?<>
         <Switch>
         <Route path="/profile"><Profile /></Route>
         <Route  path="/posts">

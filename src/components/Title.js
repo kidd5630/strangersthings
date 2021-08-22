@@ -2,32 +2,32 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const Title = ({user}) => (
+const Title = ({userToken}) => (
 
     <div id="title">
        <Link to="/"><h1>
             Stranger's Things
         </h1> </Link> 
-        {user? <nav>
+        {userToken? <nav>
             <ul>
             <Link to="/profile">
-                <button className="navBtn">PROFILE</button>
+                <li className="navBtn">PROFILE</li>
                 </Link>
                 <Link to="/posts">
-                <button className="navBtn">POSTS</button>
+                <li className="navBtn">POSTS</li>
                 </Link>
                 <Link to="/">
-                <button className="navBtn">LOGOUT</button>
+                <li className="navBtn">LOGOUT</li>
                 </Link>
             </ul>
         </nav>:
         <nav>
             <ul>
                 <Link to="/login">
-                <button className="navBtn">LOGIN</button>
+                <li className="navBtn">LOGIN</li>
                 </Link>
                 <Link to="/register">
-                <button className="navBtn">REGISTER</button>
+                <li className="navBtn">REGISTER</li>
                 </Link>
             </ul>
         </nav>}
