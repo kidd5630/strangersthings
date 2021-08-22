@@ -9,7 +9,7 @@ import {
     Register,
     Title,
     Allposts,
-    // MakePosts
+    Logout
   } from './components';
 
 import {
@@ -31,13 +31,15 @@ const App = () => {
         {
         userToken?<>
         <Switch>
-        <Route path="/profile"><Profile /></Route>
+        <Route path="/profile"><Profile myUsername={myUsername}/></Route>
         <Route  path="/posts">
         <Allposts allPosts={allPosts}
             setAllPosts={setAllPosts} 
             userToken={userToken}
         />
         </Route>
+        <Route path="/"><Logout userToken={userToken}
+        setUserToken={setUserToken}/></Route>
         </Switch>
         </>:
         <>

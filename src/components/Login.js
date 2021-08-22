@@ -18,7 +18,9 @@ const Login = ({setMyPassword, myPassword, setMyUsername, myUsername, setUserTok
             console.log("username", myUsername)
             const token = await results.data.token
             setUserToken(token)
+            setMyUsername(myUsername)
             localStorage.setItem('userToken', JSON.stringify(token));
+            localStorage.setItem('userUsername', JSON.stringify(myUsername));
             return <Redirect to="/posts" />
           
         }catch(error) {

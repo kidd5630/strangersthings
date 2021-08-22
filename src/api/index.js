@@ -43,5 +43,3 @@ export async function fetchLoginUser(url, username, password) {
       }
     
 }
-
-

@@ -28,4 +28,4 @@ const MakePosts = () => {
 }
 
 
-export default MakePosts; 
+export default MakePosts;
