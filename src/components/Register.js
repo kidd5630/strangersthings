@@ -6,9 +6,7 @@ import {
     fetchResgisterUser
 } from '../api';
 
-const Register = ({setUserToken}) => {
-    const [myUsername, setMyUsername] = useState('');
-    const [myPassword, setMyPassword] = useState('');
+const Register = ({setUserToken, setMyPassword, myPassword, setMyUsername, myUsername}) => {
     const [confirMmyPassword, setConfirmMyPassword] = useState('');
     const [formSumbittedSuccessfully, setFormSumbittedSuccessfully] = useState(false);
 
@@ -20,7 +18,7 @@ const Register = ({setUserToken}) => {
         } else {
             try {
                 const results = await fetchResgisterUser(BASE_URL, myUsername, myPassword);
-                const token = results.data.token;
+                const token = await results.data.token;
                 setUserToken(token);
                 setMyUsername(myUsername);
                 localStorage.setItem('userToken', JSON.stringify(token));

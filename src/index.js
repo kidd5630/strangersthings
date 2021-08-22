@@ -11,21 +11,22 @@ import {
     Allposts
   } from './components';
 
-// import {
-//     fetchAllPosts
-// } from './api';
+import {
+    getCurrentUserToken
+} from './auth';
 
 const App = () => {
     const [allPosts, setAllPosts]= useState([]);
     const [myPosts, setMyPosts] = useState([]);
-    const [user, setUser] = useState(false); 
-    const [userToken, setUserToken] = useState('');
+    const [userToken, setUserToken] = useState(getCurrentUserToken());
+    const [myUsername, setMyUsername] = useState('');
+    const [myPassword, setMyPassword] = useState('');
 
     
     return (<Router>
         <div className="app">
         <Title 
-        userToken= {userToken} />
+        userToken={userToken} />
         {
         userToken?<>
         <Switch>
@@ -34,7 +35,6 @@ const App = () => {
         <Allposts allPosts={allPosts}
             setAllPosts={setAllPosts} 
             userToken={userToken}
-
         />
         </Route>
         </Switch>
@@ -43,11 +43,21 @@ const App = () => {
         <Switch>
         <Route path="/register">
             <Register 
-                setUser={setUser}
                 setUserToken={setUserToken}
+                myUsername={myUsername}
+                setMyUsername={setMyUsername}
+                myPassword={myPassword}
+                setMyPassword={setMyPassword}
                 />
             </Route>
-        <Route path="/login"><Login /></Route>
+        <Route path="/login"><Login 
+            myUsername={myUsername}
+            setMyUsername={setMyUsername}
+            myPassword={myPassword}
+            setMyPassword={setMyPassword}
+            setUserToken={setUserToken}
+            />
+        </Route>
         <Route exact path="/"><Allposts /></Route>
 
         </Switch>
