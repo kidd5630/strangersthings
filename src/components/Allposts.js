@@ -3,10 +3,10 @@ import Aside from "./Aside";
 
 import {
     BASE_URL,
-    fetchAllPosts
+    fetchResgisterUser
 } from '../api';
 
-const Allposts = (props) => {
+const Allposts = ({userToken}) => {
 
     const [allPosts, setAllPosts] = useState([])
     
@@ -18,7 +18,7 @@ const Allposts = (props) => {
 
     console.log(allPosts)
 
-    return (
+    if(userToken){return (
         <>
         <div id="allposts">
          {allPosts.map(post => {
@@ -32,10 +32,26 @@ const Allposts = (props) => {
          })
         }
         </div>
-        <Aside />
         </>
-    )
-
+    )}else{
+        return (
+        <>
+        <div id="allposts">
+         {allPosts.map(post => {
+           return <div key={post._id}>
+           <h3>{post.title}</h3>
+           <p>{post.description}</p>
+           <p>Price: {post.price}</p>
+           <p>Seller: {post.author.username}</p>
+           <p>Location: {post.location}</p>
+           </div>
+         })
+        }
+        </div>
+       <Aside />
+        </>
+        )
+    }
 
 }
 

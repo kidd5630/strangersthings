@@ -6,8 +6,7 @@ import {
     fetchResgisterUser
 } from '../api';
 
-const Register = ({setUser, setUserToken}) => {
-
+const Register = ({setUserToken}) => {
     const [myUsername, setMyUsername] = useState('');
     const [myPassword, setMyPassword] = useState('');
     const [confirMmyPassword, setConfirmMyPassword] = useState('');
@@ -16,30 +15,26 @@ const Register = ({setUser, setUserToken}) => {
     async function registerUser(event) {
         event.preventDefault();
        
-        // if (!myUsername) {
-        //     alert("please enter a username")
-        // } else if (!myPassword) {
-        //     alert("please enter a password")
-        // } else 
         if (myPassword !== confirMmyPassword) {
             alert("please make sure your passwords match")
         } else {
-
             try {
                 const results = await fetchResgisterUser(BASE_URL, myUsername, myPassword);
                 const token = results.data.token;
                 setUserToken(token);
-                setUser(true);
+                setMyUsername(myUsername);
                 localStorage.setItem('userToken', JSON.stringify(token));
+                console.log("token", token)
+                console.log("username", myUsername)
+                console.log('password', myPassword)
                 setFormSumbittedSuccessfully(true)
-            } catch(error) {
+            }catch(error) {
                 console.error(error)
             }
             
         }
         
     }
-
     if(formSumbittedSuccessfully) {
         return  <Redirect to="/posts" />
     }

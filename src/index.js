@@ -21,7 +21,6 @@ const App = () => {
     const [user, setUser] = useState(false); 
     const [userToken, setUserToken] = useState('');
 
-console.log("user", user) 
 
     return (<Router>
         <div className="app">
@@ -33,7 +32,9 @@ console.log("user", user)
         <Route path="/profile"><Profile /></Route>
         <Route  path="/posts">
         <Allposts allPosts={allPosts}
-            setAllPosts={setAllPosts}
+            setAllPosts={setAllPosts} 
+            userToken={userToken}
+
         />
         </Route>
         </Switch>
