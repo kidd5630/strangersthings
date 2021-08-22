@@ -8,7 +8,8 @@ import {
     Profile,
     Register,
     Title,
-    Allposts
+    Allposts,
+    // MakePosts
   } from './components';
 
 import {

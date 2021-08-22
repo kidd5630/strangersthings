@@ -44,26 +44,4 @@ export async function fetchLoginUser(url, username, password) {
     
 }
 
-export async function fetchUser(url, username, password) {
-    try {
-        const response = await fetch(`${url}/users/login`, {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-           user: {
-               "username": username,
-               "password": password
-           } 
-        })
-    })
-    const data = await response.json();
-    return data
-    } catch (error) {
-        console.error(error);
-      }
-    
-}
-
 
