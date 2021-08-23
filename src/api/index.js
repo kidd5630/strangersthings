@@ -43,3 +43,31 @@ export async function fetchLoginUser(url, username, password) {
       }
     
 }
+
+
+export async function createPost( url, userToken, title, description, price, location, deliver) {
+    
+    try {
+        const response = await fetch(`${url}/posts`, {
+            method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': "Bearer " + userToken
+        },
+        body: JSON.stringify({
+            post: {
+                "title": title,
+                "description": description,
+                "price": price,
+                "location": location,
+                "deliver": deliver
+            } 
+
+        })
+    })
+    const data = await response.json();
+    return data
+    } catch (error) {
+        console.error(error);
+      } 
+    }

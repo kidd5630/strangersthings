@@ -7,7 +7,7 @@ import {
     fetchResgisterUser
 } from '../api';
 
-const Allposts = ({userToken}) => {
+const Allposts = ({userToken, myUsername}) => {
 
     const [allPosts, setAllPosts] = useState([])
     
@@ -18,6 +18,7 @@ const Allposts = ({userToken}) => {
     }, [])
 
     console.log(allPosts)
+    console.log("please show up", localStorage.getItem('myUsername'))
 
     if(userToken){return (
         <>
@@ -29,11 +30,20 @@ const Allposts = ({userToken}) => {
            <p>Price: {post.price}</p>
            <p>Seller: {post.author.username}</p>
            <p>Location: {post.location}</p>
+           {post.author.username === myUsername?
+           <div>
+           <button>Edit</button>
+           <button>Delete</button>
+           </div>:
+           <div>
+               <button>Message About Post</button>
+           </div>
+        }
            </div>
          })
         }
         </div>
-        <MakePosts />
+        <MakePosts userToken={userToken}/>
         </>
     )}else{
         return (

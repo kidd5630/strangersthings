@@ -18,6 +18,7 @@ const Login = ({setMyPassword, myPassword, setMyUsername, myUsername, setUserTok
             setUserToken(token)
             setMyUsername(myUsername)
             localStorage.setItem('userToken', JSON.stringify(token));
+            localStorage.setItem('myUsername', JSON.stringify(myUsername));
             <Redirect to="/posts" />
 
         }catch(error) {

@@ -37,6 +37,7 @@ const App = () => {
         <Allposts allPosts={allPosts}
             setAllPosts={setAllPosts} 
             userToken={userToken}
+            myUsername={myUsername}
         />
         </Route>
         {/* <Route>
