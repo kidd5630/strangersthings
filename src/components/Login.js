@@ -14,18 +14,16 @@ const Login = ({setMyPassword, myPassword, setMyUsername, myUsername, setUserTok
 
         try {
             const results = await fetchLoginUser(BASE_URL, myUsername, myPassword);
-            console.log("token", results.data.token)
-            console.log("username", myUsername)
             const token = await results.data.token
             setUserToken(token)
             setMyUsername(myUsername)
             localStorage.setItem('userToken', JSON.stringify(token));
-            localStorage.setItem('userUsername', JSON.stringify(myUsername));
-            return <Redirect to="/posts" />
-          
+            <Redirect to="/posts" />
+
         }catch(error) {
             console.error(error)
         }
+        
         
     }
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-
-const Title = ({userToken}) => (
+import {removeCurrentUserToken}
+from '../auth'
+const Title = ({userToken, setUserToken}) => (
 
     <div id="title">
        <Link to="/"><h1>
@@ -16,9 +16,10 @@ const Title = ({userToken}) => (
                 <Link to="/posts">
                 <li className="navBtn">POSTS</li>
                 </Link>
-                <Link to="/">
-                <li className="navBtn">LOGOUT</li>
-                </Link>
+                <button className="navBtn"
+                onClick={() => {setUserToken(removeCurrentUserToken())}}
+                >LOGOUT
+                </button>
             </ul>
         </nav>:
         <nav>

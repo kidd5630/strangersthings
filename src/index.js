@@ -9,7 +9,6 @@ import {
     Register,
     Title,
     Allposts,
-    Logout
   } from './components';
 
 import {
@@ -23,13 +22,15 @@ const App = () => {
     const [myUsername, setMyUsername] = useState('');
     const [myPassword, setMyPassword] = useState('');
 
+    console.log("userToken is", userToken)
     
     return (<Router>
         <div className="app">
         <Title 
-        userToken={userToken} />
+        userToken={userToken}
+        setUserToken={setUserToken} />
         {
-        userToken?<>
+        userToken?(<div>
         <Switch>
         <Route path="/profile"><Profile myUsername={myUsername}/></Route>
         <Route  path="/posts">
@@ -38,11 +39,14 @@ const App = () => {
             userToken={userToken}
         />
         </Route>
-        <Route path="/"><Logout userToken={userToken}
-        setUserToken={setUserToken}/></Route>
+        {/* <Route>
+        <Logout userToken={userToken}
+        setUserToken={setUserToken}/>
+        </Route> */}
         </Switch>
-        </>:
-        <>
+        </div>
+        ):
+        (<div>
         <Switch>
         <Route path="/register">
             <Register 
@@ -62,9 +66,8 @@ const App = () => {
             />
         </Route>
         <Route exact path="/"><Allposts /></Route>
-
         </Switch>
-        </>
+        </div>)
         }
         
 

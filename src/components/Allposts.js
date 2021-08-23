@@ -58,4 +58,4 @@ const Allposts = ({userToken}) => {
 }
 
 
-export default Allposts;
+export default Allposts
