@@ -22,9 +22,7 @@ const Register = ({setUserToken, setMyPassword, myPassword, setMyUsername, myUse
                 setUserToken(token);
                 setMyUsername(myUsername);
                 localStorage.setItem('userToken', JSON.stringify(token));
-                console.log("token", token)
-                console.log("username", myUsername)
-                console.log('password', myPassword)
+                localStorage.setItem('myUsername', JSON.stringify(myUsername));
                 setFormSumbittedSuccessfully(true)
             }catch(error) {
                 console.error(error)

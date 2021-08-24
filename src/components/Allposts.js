@@ -4,21 +4,24 @@ import MakePosts from "./MakePosts";
 
 import {
     BASE_URL,
-    fetchResgisterUser
+    fetchResgisterUser,
+    deletePost,
+    fetchAllPosts
 } from '../api';
 
 const Allposts = ({userToken, myUsername}) => {
-
     const [allPosts, setAllPosts] = useState([])
     
     useEffect(() => {
-        fetch(`${BASE_URL}/posts`)
-        .then(res => res.json())
-        .then(results => {setAllPosts(results.data.posts)})
-    }, [])
+        Promise.all([
+         fetchAllPosts(),
+        ])
+         .then(([allPosts]) => {
+           setAllPosts(allPosts)
+         }).catch(error => console.error(error))}, []);
+    
 
     console.log(allPosts)
-    console.log("please show up", localStorage.getItem('myUsername'))
 
     if(userToken){return (
         <>
@@ -33,7 +36,7 @@ const Allposts = ({userToken, myUsername}) => {
            {post.author.username === myUsername?
            <div>
            <button>Edit</button>
-           <button>Delete</button>
+           <button onClick={() => {deletePost(BASE_URL, post._id, userToken)}}>Delete</button>
            </div>:
            <div>
                <button>Message About Post</button>

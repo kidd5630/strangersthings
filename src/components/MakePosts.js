@@ -13,7 +13,6 @@ const MakePosts = ({userToken}) => {
         e.preventDefault();
             try {
             const results = await createPost(BASE_URL, userToken, title, description, price, location, deliver);
-            // const posts = await results.data.post
         }catch(error) {
             console.error(error)
         }

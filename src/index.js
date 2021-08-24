@@ -12,23 +12,24 @@ import {
   } from './components';
 
 import {
-    getCurrentUserToken
+    getCurrentUserToken,
+    getCurrentUsername,
+
 } from './auth';
 
 const App = () => {
     const [allPosts, setAllPosts]= useState([]);
     const [myPosts, setMyPosts] = useState([]);
     const [userToken, setUserToken] = useState(getCurrentUserToken());
-    const [myUsername, setMyUsername] = useState('');
+    const [myUsername, setMyUsername] = useState(getCurrentUsername());
     const [myPassword, setMyPassword] = useState('');
 
-    console.log("userToken is", userToken)
-    
     return (<Router>
         <div className="app">
         <Title 
         userToken={userToken}
-        setUserToken={setUserToken} />
+        setUserToken={setUserToken} 
+        setMyUsername={setMyUsername}/>
         {
         userToken?(<div>
         <Switch>

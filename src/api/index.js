@@ -71,3 +71,34 @@ export async function createPost( url, userToken, title, description, price, loc
         console.error(error);
       } 
     }
+
+export async function deletePost(url, postId, userToken) {
+    
+    try {
+        const response = await fetch(`${url}/posts/${postId}`, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + userToken
+            }
+        })
+        const data = await response.json();
+        return data
+        } catch (error) {
+            console.error(error);
+          } 
+        }
+
+export async function fetchAllPosts(){
+
+    try{
+    const response = await fetch(`${BASE_URL}/posts`)
+    const results = await response.json()
+    const posts = await results.data.posts
+    return posts
+    } catch (error) {
+        console.error(error);
+    }
+
+}
+
