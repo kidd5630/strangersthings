@@ -33,7 +33,11 @@ const App = () => {
         {
         userToken?(<div>
         <Switch>
-        <Route path="/profile"><Profile myUsername={myUsername}/></Route>
+        <Route path="/profile">
+            <Profile myUsername={myUsername}
+                userToken={userToken}
+            />
+        </Route>
         <Route  path="/posts">
         <Allposts allPosts={allPosts}
             setAllPosts={setAllPosts} 

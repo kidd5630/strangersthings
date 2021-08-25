@@ -83,6 +83,7 @@ export async function deletePost(url, postId, userToken) {
             }
         })
         const data = await response.json();
+        console.log(data)
         return data
         } catch (error) {
             console.error(error);
@@ -102,3 +103,17 @@ export async function fetchAllPosts(){
 
 }
 
+export async function fetchMyData(url, userToken) { 
+    try {
+        const response = await fetch(`${url}/users/me`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + userToken
+            }
+        })
+        const results = await response.json()
+        return results
+    } catch(error) {
+        console.error(error)
+    }
+}
