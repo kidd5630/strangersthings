@@ -73,7 +73,6 @@ export async function createPost( url, userToken, title, description, price, loc
     }
 
 export async function deletePost(url, postId, userToken) {
-    
     try {
         const response = await fetch(`${url}/posts/${postId}`, {
             method: "DELETE",
@@ -83,7 +82,7 @@ export async function deletePost(url, postId, userToken) {
             }
         })
         const data = await response.json();
-        console.log(data)
+        console.log("this is after delete", data)
         return data
         } catch (error) {
             console.error(error);

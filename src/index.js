@@ -17,12 +17,23 @@ import {
 
 } from './auth';
 
+import {
+    deletePost,
+    BASE_URL
+} from './api';
+
 const App = () => {
     const [allPosts, setAllPosts]= useState([]);
-    const [myPosts, setMyPosts] = useState([]);
     const [userToken, setUserToken] = useState(getCurrentUserToken());
     const [myUsername, setMyUsername] = useState(getCurrentUsername());
     const [myPassword, setMyPassword] = useState('');
+    const [postDeleted, setPostDeleted] = useState(0)
+    async function deleteItem(id){
+      const result = await deletePost(BASE_URL, id, userToken)
+      if(result.success){
+        setPostDeleted(postDeleted +1)
+      }
+    }
 
     return (<Router>
         <div className="app">
@@ -36,6 +47,11 @@ const App = () => {
         <Route path="/profile">
             <Profile myUsername={myUsername}
                 userToken={userToken}
+                postDeleted={postDeleted}
+                setPostDeleted={setPostDeleted}
+                deleteItem={deleteItem}
+                allPosts={allPosts}
+                setAllPosts={setAllPosts}
             />
         </Route>
         <Route  path="/posts">
@@ -43,6 +59,11 @@ const App = () => {
             setAllPosts={setAllPosts} 
             userToken={userToken}
             myUsername={myUsername}
+            postDeleted={postDeleted}
+            setPostDeleted={setPostDeleted}
+            deleteItem={deleteItem}
+            allPosts={allPosts}
+            setAllPosts={setAllPosts}
         />
         </Route>
         {/* <Route>

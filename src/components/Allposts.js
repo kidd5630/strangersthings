@@ -9,44 +9,47 @@ import {
     fetchAllPosts
 } from '../api';
 
-const Allposts = ({userToken, myUsername}) => {
-    const [allPosts, setAllPosts] = useState([])
+const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts}) => {
     
+    console.log("here", allPosts)
+
     useEffect(() => {
-        Promise.all([
-         fetchAllPosts(),
-        ])
-         .then(([allPosts]) => {
-           setAllPosts(allPosts)
-         }).catch(error => console.error(error))}, []);
+      fetchAllPosts()
+        .then((allPosts) => {
+          setAllPosts(allPosts)
+        })
+        .catch(error => console.error(error))
+    }, [postDeleted]);
     
-
-    console.log(allPosts)
-
     if(userToken){return (
         <>
         <div id="allposts">
-         {allPosts.map(post => {
-           return <div key={post._id}>
-           <h3>{post.title}</h3>
-           <p>{post.description}</p>
-           <p>Price: {post.price}</p>
-           <p>Seller: {post.author.username}</p>
-           <p>Location: {post.location}</p>
-           {post.author.username === myUsername?
-           <div>
-           <button>Edit</button>
-           <button onClick={() => {deletePost(BASE_URL, post._id, userToken)}}>Delete</button>
-           </div>:
-           <div>
-               <button>Message About Post</button>
-           </div>
-        }
+          {allPosts.map(post => {
+            const {_id, title, description, price, author: {username}, location} = post
+            return <div key={_id}>
+            <h3>{title}</h3>
+            <p>{description}</p>
+            <p>Price: {price}</p>
+            <p>Seller: {username}</p>
+            <p>Location: {location}</p>
+            {username === myUsername?
+            <div>
+            <button>Edit</button>
+            <button 
+              onClick={() => {
+                  deleteItem(_id)}}>
+              Delete
+            </button>
+            </div>:
+            <div>
+              <button>Message About Post</button>
+            </div>
+            }
            </div>
          })
         }
         </div>
-        <MakePosts userToken={userToken}/>
+        <MakePosts allPosts={allPosts} setAllPosts={setAllPosts} userToken={userToken}/>
         </>
     )}else{
         return (

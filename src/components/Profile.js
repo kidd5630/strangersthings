@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Link, Switch, useRouteMatch} from 'react
 
 import Myposts from './Myposts';
 
-const Profile = ({myUsername, userToken}) => {
+const Profile = ({myUsername, userToken, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts}) => {
 
     let match = useRouteMatch();
 
@@ -31,7 +31,12 @@ const Profile = ({myUsername, userToken}) => {
         </nav>
         <Switch>
             <Route path={`${match.path}/my-posts`}>
-                <Myposts userToken={userToken}/>
+                <Myposts userToken={userToken}
+                postDeleted={postDeleted}
+                setPostDeleted={setPostDeleted}
+                deleteItem={deleteItem}
+                allPosts={allPosts}
+                setAllPosts={setAllPosts}/>
             </Route>
             <Route path={`${match.path}/sent-messages`}>
                 Sent Messages Coming Soon
