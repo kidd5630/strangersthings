@@ -45,7 +45,9 @@ useEffect(async () => {
         }
         <MakePosts allPosts={allPosts}
         setAllPosts={setAllPosts}
-        userToken={userToken}/>
+        userToken={userToken}
+        myPostsList={myPostsList} 
+        setMyPostsList={setMyPostsList}/>
         </div>
     </div>)
         

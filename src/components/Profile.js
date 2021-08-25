@@ -4,7 +4,6 @@ import {BrowserRouter as Router, Route, Link, Switch, useRouteMatch} from 'react
 import Myposts from './Myposts';
 
 const Profile = ({myUsername, userToken, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts}) => {
-
     let match = useRouteMatch();
 
     return (<Router><div>
@@ -44,7 +43,7 @@ const Profile = ({myUsername, userToken, postDeleted, setPostDeleted, deleteItem
             <Route path={`${match.path}/received-messages`}>
                 Received Messages Coming Soon
             </Route>
-            <Route path={`${match.path}/`}>
+            <Route exact path={`${match.path}`}>
                 Received Messages will go here 
             </Route>
         </Switch>

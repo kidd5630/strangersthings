@@ -54,7 +54,7 @@ const App = () => {
                 setAllPosts={setAllPosts}
             />
         </Route>
-        <Route  path="/posts">
+        <Route path="/posts">
         <Allposts allPosts={allPosts}
             setAllPosts={setAllPosts} 
             userToken={userToken}
