@@ -9,6 +9,7 @@ const MakePosts = ({userToken}) => {
     const [price, setPrice] = useState('');
     const [location, setLocation] = useState('[On request]');
     const [deliver, setDeliver] = useState(false);
+    
     async function post(e) {
         e.preventDefault();
             try {

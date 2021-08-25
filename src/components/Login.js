@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import {
     BASE_URL,
@@ -10,18 +10,24 @@ import {
 
 const Login = ({setMyPassword, myPassword, setMyUsername, myUsername, setUserToken}) => {
 
+let history = useHistory()
     async function loginUser(event) {
+        
         event.preventDefault();
 
         try {
             const results = await fetchLoginUser(BASE_URL, myUsername, myPassword);
-            const token = await results.data.token
-            setUserToken(token)
-            setMyUsername(myUsername)
-            localStorage.setItem('userToken', JSON.stringify(token));
-            localStorage.setItem('myUsername', JSON.stringify(myUsername));
-            <Redirect to="/posts" />
-
+            if(results.success) {
+                const token = await results.data.token
+                setUserToken(token)
+                setMyUsername(myUsername)
+                localStorage.setItem('userToken', JSON.stringify(token));
+                localStorage.setItem('myUsername', JSON.stringify(myUsername));
+                history.push("/posts")
+            } else {
+                alert(results.error.message)
+            }
+            
         }catch(error) {
             console.error(error)
         }

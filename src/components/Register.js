@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import {
     BASE_URL,
@@ -8,7 +8,8 @@ import {
 
 const Register = ({setUserToken, setMyPassword, myPassword, setMyUsername, myUsername}) => {
     const [confirMmyPassword, setConfirmMyPassword] = useState('');
-    const [formSumbittedSuccessfully, setFormSumbittedSuccessfully] = useState(false);
+
+    let history = useHistory()
 
     async function registerUser(event) {
         event.preventDefault();
@@ -18,12 +19,16 @@ const Register = ({setUserToken, setMyPassword, myPassword, setMyUsername, myUse
         } else {
             try {
                 const results = await fetchResgisterUser(BASE_URL, myUsername, myPassword);
-                const token = await results.data.token;
-                setUserToken(token);
-                setMyUsername(myUsername);
-                localStorage.setItem('userToken', JSON.stringify(token));
-                localStorage.setItem('myUsername', JSON.stringify(myUsername));
-                setFormSumbittedSuccessfully(true)
+                if(results.success) {
+                    const token = await results.data.token;
+                    setUserToken(token);
+                    setMyUsername(myUsername);
+                    localStorage.setItem('userToken', JSON.stringify(token));
+                    localStorage.setItem('myUsername', JSON.stringify(myUsername));
+                    history.push("/posts")
+                } else {
+                    alert(results.error.message)
+                }
             }catch(error) {
                 console.error(error)
             }
@@ -31,10 +36,7 @@ const Register = ({setUserToken, setMyPassword, myPassword, setMyUsername, myUse
         }
         
     }
-    if(formSumbittedSuccessfully) {
-        return  <Redirect to="/posts" />
-    }
-
+    
     return (
     <section>
         <h1>Register</h1>

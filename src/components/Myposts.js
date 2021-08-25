@@ -6,13 +6,13 @@ const Myposts = ({userToken}) => {
 
 const [myPostsList, setMyPostsList] = useState([]);
 
-const myPostsURL = 'profile/my-posts'
 
-console.log("my myPostsList", myPostsList)
+console.log("myPostsList", myPostsList)
 
 useEffect(async () => {
     try {
         const result = await fetchMyData(BASE_URL, userToken)
+        console.log(result)
         const postsData = result.data.posts
         setMyPostsList(postsData)
 

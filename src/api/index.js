@@ -117,3 +117,26 @@ export async function fetchMyData(url, userToken) {
         console.error(error)
     }
 }
+
+export async function sendMessage(url, postId, userToken, message) {
+    try {
+        const response = await fetch(`${url}/posts/${postId}/messages`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + userToken
+            },
+            body:  JSON.stringify({
+                message: {
+                  "content": message
+                }
+            })
+        })
+        const results = await response.json();
+        console.log(results)
+        return results;
+
+    } catch(error) {
+        console.error(error)
+    }
+}
