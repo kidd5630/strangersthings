@@ -4,12 +4,14 @@ import MakePosts from "./MakePosts";
 
 import {
     BASE_URL,
-    fetchResgisterUser,
     deletePost,
-    fetchAllPosts
+    fetchAllPosts,
+    sendMessage
 } from '../api';
 
 const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts}) => {
+
+    const [message, setMessage] = useState(null);
     
     console.log("here", allPosts)
 
@@ -42,7 +44,8 @@ const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteIte
             </button>
             </div>:
             <div>
-              <button>Message About Post</button>
+            <input type="text" placeholder="Your Message Here" onChange={(event) => {setMessage(event.target.value)}} required/>
+               <button onClick={() => {sendMessage(BASE_URL, post._id, userToken, message); console.log(allPosts)}}>Message About Post</button>
             </div>
             }
            </div>

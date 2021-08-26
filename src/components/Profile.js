@@ -2,6 +2,8 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Link, Switch, useRouteMatch} from 'react-router-dom';
 
 import Myposts from './Myposts';
+import SentMessages from './SentMessages';
+import ReceivedMessages from './ReceivedMessages';
 
 const Profile = ({myUsername, userToken, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts}) => {
     let match = useRouteMatch();
@@ -38,10 +40,10 @@ const Profile = ({myUsername, userToken, postDeleted, setPostDeleted, deleteItem
                 setAllPosts={setAllPosts}/>
             </Route>
             <Route path={`${match.path}/sent-messages`}>
-                Sent Messages Coming Soon
+                <SentMessages userToken={userToken} myUsername={myUsername}/>
             </Route>
             <Route path={`${match.path}/received-messages`}>
-                Received Messages Coming Soon
+                <ReceivedMessages userToken={userToken} myUsername={myUsername} />
             </Route>
             <Route exact path={`${match.path}`}>
                 Received Messages will go here 

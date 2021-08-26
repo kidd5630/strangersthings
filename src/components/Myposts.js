@@ -12,6 +12,7 @@ const [myPostsList, setMyPostsList] = useState([]);
 useEffect(async () => {
     try {
         const result = await fetchMyData(BASE_URL, userToken)
+        console.log(result)
         const postsData = result.data.posts
         setMyPostsList(postsData)
     } catch(error) {

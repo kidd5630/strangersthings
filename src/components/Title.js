@@ -1,10 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import {removeCurrentUserToken, removeCurrentUsername}
 from '../auth'
-const Title = ({userToken, setUserToken,setMyUsername}) => (
+const Title = ({userToken, setUserToken,setMyUsername}) => {
 
-    <div id="title">
+let history = useHistory()
+
+    return (<div id="title">
        <Link to="/"><h1>
             Stranger's Things
         </h1> </Link> 
@@ -18,7 +20,8 @@ const Title = ({userToken, setUserToken,setMyUsername}) => (
                 </Link>
                 <button className="navBtn"
                 onClick={() => {setUserToken(removeCurrentUserToken())
-                setMyUsername(removeCurrentUsername())}}
+                setMyUsername(removeCurrentUsername())
+                history.push("/")}}
                 >LOGOUT
                 </button>
             </ul>
@@ -35,5 +38,6 @@ const Title = ({userToken, setUserToken,setMyUsername}) => (
         </nav>}
     </div>
     )
+}
 
 export default Title; 
