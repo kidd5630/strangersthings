@@ -9,7 +9,8 @@ import {
     sendMessage
 } from '../api';
 
-const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts}) => {
+const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts, myPostsList, 
+  setMyPostsList}) => {
 
     const [message, setMessage] = useState(null);
     
@@ -45,14 +46,15 @@ const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteIte
             </div>:
             <div>
             <input type="text" placeholder="Your Message Here" onChange={(event) => {setMessage(event.target.value)}} required/>
-               <button onClick={() => {sendMessage(BASE_URL, post._id, userToken, message); console.log(allPosts)}}>Message About Post</button>
+               <button onClick={() => {sendMessage(BASE_URL, post._id, userToken, message);}}>Message About Post</button>
             </div>
             }
            </div>
          })
         }
         </div>
-        <MakePosts allPosts={allPosts} setAllPosts={setAllPosts} userToken={userToken}/>
+        <MakePosts allPosts={allPosts} setAllPosts={setAllPosts} userToken={userToken} myPostsList={myPostsList} 
+        setMyPostsList={setMyPostsList}/>
         </>
     )}else{
         return (

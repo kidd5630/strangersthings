@@ -47,6 +47,17 @@ export async function fetchLoginUser(url, username, password) {
 
 export async function createPost( url, userToken, title, description, price, location, deliver) {
     
+    const postObj = {
+        "title": title,
+        "description": description,
+        "price": price,
+        "willDeliver": deliver
+    } 
+
+    if(location) {
+        postObj["location"] = location;
+    }
+
     try {
         const response = await fetch(`${url}/posts`, {
             method: "POST",
@@ -55,14 +66,7 @@ export async function createPost( url, userToken, title, description, price, loc
             'Authorization': "Bearer " + userToken
         },
         body: JSON.stringify({
-            post: {
-                "title": title,
-                "description": description,
-                "price": price,
-                "location": location,
-                "deliver": deliver
-            } 
-
+            post: postObj
         })
     })
     const data = await response.json();
@@ -82,7 +86,6 @@ export async function deletePost(url, postId, userToken) {
             }
         })
         const data = await response.json();
-        console.log("this is after delete", data)
         return data
         } catch (error) {
             console.error(error);

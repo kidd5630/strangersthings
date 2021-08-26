@@ -5,7 +5,9 @@ import Myposts from './Myposts';
 import SentMessages from './SentMessages';
 import ReceivedMessages from './ReceivedMessages';
 
-const Profile = ({myUsername, userToken, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts}) => {
+const Profile = ({myUsername, userToken, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts, myPostsList, 
+    setMyPostsList}) => {
+
     let match = useRouteMatch();
 
     return (<Router><div>
@@ -37,7 +39,10 @@ const Profile = ({myUsername, userToken, postDeleted, setPostDeleted, deleteItem
                 setPostDeleted={setPostDeleted}
                 deleteItem={deleteItem}
                 allPosts={allPosts}
-                setAllPosts={setAllPosts}/>
+                setAllPosts={setAllPosts}
+                myPostsList={myPostsList} 
+                setMyPostsList={setMyPostsList}
+                />
             </Route>
             <Route path={`${match.path}/sent-messages`}>
                 <SentMessages userToken={userToken} myUsername={myUsername}/>
@@ -46,7 +51,7 @@ const Profile = ({myUsername, userToken, postDeleted, setPostDeleted, deleteItem
                 <ReceivedMessages userToken={userToken} myUsername={myUsername} />
             </Route>
             <Route exact path={`${match.path}`}>
-                Received Messages will go here 
+                <ReceivedMessages userToken={userToken} myUsername={myUsername} />
             </Route>
         </Switch>
     </div>

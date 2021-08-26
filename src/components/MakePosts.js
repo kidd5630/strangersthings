@@ -7,15 +7,14 @@ const MakePosts = ({userToken, allPosts, setAllPosts, myPostsList, setMyPostsLis
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
-    const [location, setLocation] = useState('[On request]');
+    const [location, setLocation] = useState('');
     const [deliver, setDeliver] = useState(false);
-    
     
     function resetForm(){
         setTitle('');
         setDescription('');
         setPrice('');
-        setLocation('[On request]')
+        setLocation('');
         setDeliver(false)
     }
     
@@ -72,8 +71,8 @@ const MakePosts = ({userToken, allPosts, setAllPosts, myPostsList, setMyPostsLis
                 <div>
                     <label>Location</label>
                     <input type="text" 
-                    placeholder="Location" value={location} 
-                    onChange={(event) => {
+                    placeholder="Location" value={location}
+                    onChange={(event) => { 
                         setLocation(event.target.value)
                     }}/>
                 </div>
@@ -82,7 +81,7 @@ const MakePosts = ({userToken, allPosts, setAllPosts, myPostsList, setMyPostsLis
                     id="willDeliver" 
                     checked={deliver} 
                     onChange={() => {
-                        document.querySelector('#willDeliver:checked')? setDeliver(true): setDeliver(false)
+                        document.querySelector('#willDeliver:checked') ? setDeliver(true): setDeliver(false)
                     }}/>
                     <label>Will Deliver</label>
                 </div>

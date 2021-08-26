@@ -4,10 +4,8 @@ import {fetchMyData, BASE_URL, fetchAllPosts} from '../api'
 
 import MakePosts from './MakePosts'
 
-const Myposts = ({userToken, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts}) => {
-
-const [myPostsList, setMyPostsList] = useState([]);
-
+const Myposts = ({userToken, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts, myPostsList, 
+    setMyPostsList}) => {
 
 useEffect(async () => {
     try {

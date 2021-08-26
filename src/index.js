@@ -27,7 +27,9 @@ const App = () => {
     const [userToken, setUserToken] = useState(getCurrentUserToken());
     const [myUsername, setMyUsername] = useState(getCurrentUsername());
     const [myPassword, setMyPassword] = useState('');
-    const [postDeleted, setPostDeleted] = useState(0)
+    const [postDeleted, setPostDeleted] = useState(0);
+    const [myPostsList, setMyPostsList] = useState([]);
+    
     async function deleteItem(id){
       const result = await deletePost(BASE_URL, id, userToken)
       if(result.success){
@@ -52,11 +54,12 @@ const App = () => {
                 deleteItem={deleteItem}
                 allPosts={allPosts}
                 setAllPosts={setAllPosts}
+                myPostsList={myPostsList} 
+                setMyPostsList={setMyPostsList}
             />
         </Route>
         <Route path="/posts">
-        <Allposts allPosts={allPosts}
-            setAllPosts={setAllPosts} 
+        <Allposts  
             userToken={userToken}
             myUsername={myUsername}
             postDeleted={postDeleted}
@@ -64,6 +67,8 @@ const App = () => {
             deleteItem={deleteItem}
             allPosts={allPosts}
             setAllPosts={setAllPosts}
+            myPostsList={myPostsList} 
+            setMyPostsList={setMyPostsList}
         />
         </Route>
         {/* <Route>
