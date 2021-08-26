@@ -57,7 +57,9 @@ const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteIte
         setMyPostsList={setMyPostsList}/>
         </>
     )}else{
+      console.log("user logged out", allPosts)
         return (
+         
         <>
         <div id="allposts">
          {allPosts.map(post => {

@@ -71,10 +71,6 @@ const App = () => {
             setMyPostsList={setMyPostsList}
         />
         </Route>
-        {/* <Route>
-        <Logout userToken={userToken}
-        setUserToken={setUserToken}/>
-        </Route> */}
         </Switch>
         </div>
         ):
@@ -97,7 +93,8 @@ const App = () => {
             setUserToken={setUserToken}
             />
         </Route>
-        <Route exact path="/"><Allposts /></Route>
+        <Route exact path="/"><Allposts allPosts={allPosts}
+            setAllPosts={setAllPosts}/></Route>
         </Switch>
         </div>)
         }
