@@ -133,7 +133,6 @@ export async function sendMessage(url, postId, userToken, message) {
             })
         })
         const results = await response.json();
-        console.log(results)
         return results;
 
     } catch(error) {

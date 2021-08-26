@@ -9,12 +9,27 @@ import {
     sendMessage
 } from '../api';
 
+
 const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts, myPostsList, 
   setMyPostsList}) => {
 
-    const [message, setMessage] = useState(null);
+    // const [message, setMessage] = useState('');
     
-    console.log("here", allPosts)
+    // async function  send(postId){
+      
+    //   try{
+    //     const response = await sendMessage(BASE_URL, postId, userToken, message);
+    //     if(response.success){
+    //       emptyMessageForm()
+    //     }
+    //   }catch(error) {
+    //     console.error(error)
+    //   }
+    // }
+
+    // function emptyMessageForm(){
+    //   setMessage('')
+    // }
 
     useEffect(() => {
       fetchAllPosts()
@@ -45,8 +60,10 @@ const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteIte
             </button>
             </div>:
             <div>
-            <input type="text" placeholder="Your Message Here" onChange={(event) => {setMessage(event.target.value)}} required/>
-               <button onClick={() => {sendMessage(BASE_URL, post._id, userToken, message);}}>Message About Post</button>
+            {/* <input type="text" placeholder="Your Message Here"
+            required 
+            onChange={(event) => {setMessage(event.target.value)}} />
+               <button onClick={() => {send(post._id)}}>Message About Post</button> */}
             </div>
             }
            </div>
