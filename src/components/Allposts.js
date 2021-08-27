@@ -1,6 +1,9 @@
 import React, { useEffect, useState }from 'react';
 import Aside from "./Aside";
 import MakePosts from "./MakePosts";
+import IndividualPost from './IndividualPost';
+ 
+import {BrowserRouter as Router, Route, Link, Switch, useRouteMatch, useParams} from 'react-router-dom';
 
 import {
     BASE_URL,
@@ -8,6 +11,11 @@ import {
     fetchAllPosts,
     sendMessage
 } from '../api';
+
+
+
+
+
 
 
 const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts, myPostsList, 
@@ -30,6 +38,15 @@ const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteIte
     // function emptyMessageForm(){
     //   setMessage('')
     // }
+    let match = useRouteMatch();
+    function Child() {
+      let { id } = useParams();
+    
+      return (
+        <div>
+          <h3>ID: {id}</h3>
+        </div>)
+    }
 
     useEffect(() => {
       fetchAllPosts()
@@ -45,7 +62,7 @@ const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteIte
           {allPosts.map(post => {
             const {_id, title, description, price, author: {username}, location} = post
             return <div key={_id}>
-            <h3>{title}</h3>
+            <a><h3>{title}</h3></a>
             <p>{description}</p>
             <p>Price: {price}</p>
             <p>Seller: {username}</p>
@@ -60,22 +77,23 @@ const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteIte
             </button>
             </div>:
             <div>
-            {/* <input type="text" placeholder="Your Message Here"
-            required 
-            onChange={(event) => {setMessage(event.target.value)}} />
-               <button onClick={() => {send(post._id)}}>Message About Post</button> */}
+              <ul>
+               <li> 
+               <Link to={`/post/${_id}`}>Message About Post</Link> 
+               </li>
+               </ul>
             </div>
             }
            </div>
-         })
+
+           
+        })
         }
         </div>
         <MakePosts allPosts={allPosts} setAllPosts={setAllPosts} userToken={userToken} myPostsList={myPostsList} 
         setMyPostsList={setMyPostsList}/>
         </>
-    )}else{
-      console.log("user logged out", allPosts)
-        return (
+        )}else{return (
          
         <>
         <div id="allposts">

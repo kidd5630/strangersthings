@@ -9,6 +9,7 @@ import {
     Register,
     Title,
     Allposts,
+    IndividualPost
   } from './components';
 
 import {
@@ -21,6 +22,7 @@ import {
     deletePost,
     BASE_URL
 } from './api';
+
 
 const App = () => {
     const [allPosts, setAllPosts]= useState([]);
@@ -70,6 +72,9 @@ const App = () => {
             myPostsList={myPostsList} 
             setMyPostsList={setMyPostsList}
         />
+        </Route>
+        <Route path="/post/:id">
+            <IndividualPost />
         </Route>
         </Switch>
         </div>
