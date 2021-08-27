@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {BrowserRouter as Router, Route, Link, Switch, useRouteMatch, useParams} from 'react-router-dom'
 
 import {fetchMyData, BASE_URL} from '../api'
 
@@ -19,25 +20,25 @@ useEffect(async () => {
     }, []);
 
 
-   return (
-    <div>
+   return (<div>
         <h1> Received Messages</h1>
         <div id="allposts">
             {myReceivedMessageList.map(message => { 
                 if(message.fromUser.username !== myUsername) {
-                    return (
-                        <div key={message._id}>
-                            <h3>Message from: {message.fromUser.username}</h3>
-                            <p>{message.content}</p>
+                    return ( <div key={message._id}>
+                        <h3>Message from: {message.fromUser.username}</h3>
+                        <p>{message.content}</p>
                             <div>
-                                <button>View My Post: {message.post.title}</button>
+                                <ul>
+                                    <li>
+                                        <Link to={`/post/${message._id}`}>View My Post: {message.post.title}</Link> 
+                                    </li>
+                                </ul>
                             </div>
-                        </div> )
-                } else {
-                    return
-                }    
-                })
-            }
+                        </div>
+                    )
+                }
+            })}
         </div>
     </div>)
         

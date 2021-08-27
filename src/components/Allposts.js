@@ -1,9 +1,9 @@
 import React, { useEffect, useState }from 'react';
 import Aside from "./Aside";
 import MakePosts from "./MakePosts";
-import IndividualPost from './IndividualPost';
+
  
-import {BrowserRouter as Router, Route, Link, Switch, useRouteMatch, useParams} from 'react-router-dom';
+import {BrowserRouter as Router, Link, useRouteMatch, } from 'react-router-dom';
 
 import {
     BASE_URL,
@@ -14,39 +14,12 @@ import {
 
 
 
-
-
-
-
 const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts, myPostsList, 
   setMyPostsList}) => {
 
-    // const [message, setMessage] = useState('');
-    
-    // async function  send(postId){
-      
-    //   try{
-    //     const response = await sendMessage(BASE_URL, postId, userToken, message);
-    //     if(response.success){
-    //       emptyMessageForm()
-    //     }
-    //   }catch(error) {
-    //     console.error(error)
-    //   }
-    // }
 
-    // function emptyMessageForm(){
-    //   setMessage('')
-    // }
     let match = useRouteMatch();
-    function Child() {
-      let { id } = useParams();
     
-      return (
-        <div>
-          <h3>ID: {id}</h3>
-        </div>)
-    }
 
     useEffect(() => {
       fetchAllPosts()
@@ -90,7 +63,10 @@ const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteIte
         })
         }
         </div>
-        <MakePosts allPosts={allPosts} setAllPosts={setAllPosts} userToken={userToken} myPostsList={myPostsList} 
+        <MakePosts allPosts={allPosts} 
+        setAllPosts={setAllPosts} 
+        userToken={userToken} 
+        myPostsList={myPostsList} 
         setMyPostsList={setMyPostsList}/>
         </>
         )}else{return (
