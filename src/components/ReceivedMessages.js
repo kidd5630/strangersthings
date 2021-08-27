@@ -10,10 +10,8 @@ const [myReceivedMessageList, setMyReceivedMessageList] = useState([]);
 useEffect(async () => {
     try {
         const results = await fetchMyData(BASE_URL, userToken)
-        console.log(results)
         const receivedMessageData = results.data.messages
         setMyReceivedMessageList(receivedMessageData)
-
     } catch(error) {
         console.error(error)
     }

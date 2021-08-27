@@ -59,6 +59,8 @@ const App = () => {
                 setAllPosts={setAllPosts}
                 myPostsList={myPostsList} 
                 setMyPostsList={setMyPostsList}
+                selectedPost={selectedPost}
+                setSelectedPost={setSelectedPost}
             />
         </Route>
         <Route path="/posts">

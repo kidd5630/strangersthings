@@ -1,34 +1,39 @@
 import React, {useEffect, useState} from 'react';
 
 import {fetchMyData, BASE_URL} from '../api'
+import {BrowserRouter as Router, Link} from 'react-router-dom';
 
+const SentMessages = ({userToken, myUsername, allPosts, setAllPosts, myPostsList, setMyPostsList, selectedPost,
+    setSelectedPost}) => {
 
-const SentMessages = ({userToken, myUsername}) => {
+    const [mySentMessageList, setMySentMessageList] = useState([]);
 
-const [mySentMessageList, setMySentMessageList] = useState([]);
-
-useEffect(async () => {
-    try {
+    useEffect(async () => {
+        try {
         const results = await fetchMyData(BASE_URL, userToken)
-        console.log(results)
         const sentMessageData = results.data.messages
         setMySentMessageList(sentMessageData)
-
-    } catch(error) {
+        } catch(error) {
         console.error(error)
-    }
+        }
     }, []);
+
 
 
    return (<div>
    <h1> Sent Messages</h1>
    <div id="allposts">
          {mySentMessageList.map(message => { 
-            if(message.fromUser.username === myUsername) {return <div key={message._id}>
+            if(message.fromUser.username === myUsername) {
+                return <div key={message._id}>
            <h3>Sent by Me</h3>
            <p>{message.content}</p>
            <div>
-           <button>Message Again: {message.post.title}</button>
+           <ul>
+               <li>
+                   <Link to={`/post/${message.post._id}`}>Message Again: {message.post.title}</Link>
+               </li>
+           </ul>
            </div>
            </div> 
            } else {
@@ -41,6 +46,5 @@ useEffect(async () => {
     </div>)
         
 }
-
 
 export default SentMessages; 
