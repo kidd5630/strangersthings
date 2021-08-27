@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 
 import {fetchMyData, BASE_URL} from '../api'
 
+
 const SentMessages = ({userToken, myUsername}) => {
 
 const [mySentMessageList, setMySentMessageList] = useState([]);
