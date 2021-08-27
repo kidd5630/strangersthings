@@ -31,6 +31,7 @@ const App = () => {
     const [myPassword, setMyPassword] = useState('');
     const [postDeleted, setPostDeleted] = useState(0);
     const [myPostsList, setMyPostsList] = useState([]);
+    const [selectedPost, setSelectedPost] = useState('')
     
     async function deleteItem(id){
       const result = await deletePost(BASE_URL, id, userToken)
@@ -71,10 +72,19 @@ const App = () => {
             setAllPosts={setAllPosts}
             myPostsList={myPostsList} 
             setMyPostsList={setMyPostsList}
+            selectedPost={selectedPost}
+            setSelectedPost={setSelectedPost}
         />
         </Route>
         <Route path="/post/:id">
-            <IndividualPost />
+            <IndividualPost 
+                myUsername={myUsername}
+                allPosts={allPosts}
+                userToken={userToken}
+                selectedPost={selectedPost}
+                setSelectedPost={setSelectedPost}
+                />
+                
         </Route>
         </Switch>
         </div>

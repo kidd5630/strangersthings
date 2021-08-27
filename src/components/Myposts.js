@@ -22,7 +22,7 @@ useEffect(async () => {
 
    return (<div>
    <h1> My Posts</h1>
-   <div id="allposts">
+   <div id="allPosts">
          {myPostsList.map(post => {
              const {_id, title, description, price, author: {username}, location, active} = post
              if(active) {

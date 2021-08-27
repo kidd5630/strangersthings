@@ -3,7 +3,7 @@ import Aside from "./Aside";
 import MakePosts from "./MakePosts";
 
  
-import {BrowserRouter as Router, Link, useRouteMatch, } from 'react-router-dom';
+import {BrowserRouter as Router, Link} from 'react-router-dom';
 
 import {
     BASE_URL,
@@ -14,12 +14,8 @@ import {
 
 
 
-const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts, myPostsList, 
-  setMyPostsList}) => {
-
-
-    let match = useRouteMatch();
-    
+const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts, myPostsList, setMyPostsList, selectedPost,
+  setSelectedPost}) => {
 
     useEffect(() => {
       fetchAllPosts()
@@ -51,7 +47,10 @@ const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteIte
             </div>:
             <div>
               <ul>
-               <li> 
+               <li
+               onClick={() => {
+                 setSelectedPost(_id)
+               }}> 
                <Link to={`/post/${_id}`}>Message About Post</Link> 
                </li>
                </ul>
