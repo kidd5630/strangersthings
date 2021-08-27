@@ -57,7 +57,7 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
               
              <input type="text" placeholder="Your Message Here" required
              onChange={(event) => {setMessage(event.target.value)}} />
-             <button onClick={() => {sendMessage(BASE_URL, _id, userToken, message); console.log(allPosts)}}>Send Your Message</button>
+             <button onClick={() => {send(_id)}}>Send Your Message</button>
          </div>
             }
            </div>
