@@ -7,7 +7,7 @@ const Title = ({userToken, setUserToken,setMyUsername}) => {
 let history = useHistory()
 
     return (<div id="title">
-       <Link to="/"><h1>
+       <Link to="/posts"><h1>
             Stranger's Things
         </h1> </Link> 
         {userToken? <nav>
