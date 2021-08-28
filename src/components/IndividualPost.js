@@ -7,6 +7,7 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
     setMyPostsList, myUsername, selectedPost, setSelectedPost}) => {
 
   const [message, setMessage] = useState('');
+  const [myPostMessages, setMyPostMessages] = useState([])
     
   async function send(postId){
     try{
@@ -19,27 +20,19 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
       }
     }
 
-    // useEffect(async () => {
-    //   try {
-    //       const results = await fetchMyData(BASE_URL, userToken)
-    //       const receivedMessageData = results.data.messages
-    //       //setMyReceivedMessageList(receivedMessageData)
-    //   } catch(error) {
-    //       console.error(error)
-    //   }
-    //   }, []);
+    useEffect(async () => {
+      try {
+          const results = await fetchMyData(BASE_URL, userToken)
+          const receivedMessageData = results.data.messages
+          setMyPostMessages(receivedMessageData)
+      } catch(error) {
+          console.error(error)
+      }
+      }, []);
 
   function emptyMessageForm(){
       setMessage('')
     }
-
-    // useEffect(async () => {
-    // try {
-    //     const result = await fetchAllPosts()
-    // } catch(error) {
-    //     console.error(error)
-    // }
-    // }, [postDeleted]);
    
     if(userToken){
       return (
@@ -49,8 +42,8 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
             const {_id, title, description, price, author: {username}, location} = post
 
             if(_id === selectedPost){
-            return <div key={_id}>
-            <a><h3>{title}</h3></a>
+            return (<div key={_id}>
+            <h3>{title}</h3>
             <p>{description}</p>
             <p>Price: {price}</p>
             <p>Seller: {username}</p>
@@ -64,16 +57,16 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
               Delete
             </button>
             </div>
-            // {myReceivedMessageList.map(message => { 
-            //   if(message.fromUser.username !== myUsername && message.post._id === selectedPosts ) {
-            //     return ( 
-            //        <div key={message._id}>
-            //          <h3>Message from: {message.fromUser.username}</h3>
-            //          <p>{message.content}</p>
-            //        </div> 
-            //          )
-            //    }
-            //   })}
+            {myPostMessages.map(message => { 
+              if(message.fromUser.username !== myUsername && message.post._id === selectedPosts ) {
+                return ( 
+                   <div key={message._id}>
+                     <h3>Message from: {message.fromUser.username}</h3>
+                     <p>{message.content}</p>
+                   </div> 
+                     )
+               }
+              })}
             :
              <div>
               
@@ -84,7 +77,7 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
          </div>
             }
            </div>
-           }
+          )}
         })
         }
         </div>

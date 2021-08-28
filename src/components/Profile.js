@@ -63,10 +63,6 @@ const Profile = ({myUsername, userToken, postDeleted, setPostDeleted, deleteItem
                 <ReceivedMessages userToken={userToken} myUsername={myUsername} setSelectedPost={setSelectedPost}
                 selectedPost={selectedPost} />
             </Route>
-            <Route exact path={`${match.path}`}>
-                <ReceivedMessages userToken={userToken} myUsername={myUsername} setSelectedPost={setSelectedPost}
-                selectedPost={selectedPost} />
-            </Route>
             <Route path="/post/:id">
             <IndividualPost 
                 myUsername={myUsername}
@@ -76,6 +72,10 @@ const Profile = ({myUsername, userToken, postDeleted, setPostDeleted, deleteItem
                 setSelectedPost={setSelectedPost}
                 /> 
         </Route>
+        <Route exact path="/profile">
+                <ReceivedMessages userToken={userToken} myUsername={myUsername} setSelectedPost={setSelectedPost}
+                selectedPost={selectedPost} />
+            </Route>
         </Switch>
     </div>
         
