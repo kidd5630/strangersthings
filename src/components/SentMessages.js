@@ -4,7 +4,7 @@ import {fetchMyData, BASE_URL} from '../api'
 import {BrowserRouter as Router, Link} from 'react-router-dom';
 
 const SentMessages = ({userToken, myUsername, allPosts, setAllPosts, myPostsList, setMyPostsList, selectedPost,
-    setSelectedPost}) => {
+    setSelectedPost, postID}) => {
 
     const [mySentMessageList, setMySentMessageList] = useState([]);
 
@@ -32,6 +32,7 @@ const SentMessages = ({userToken, myUsername, allPosts, setAllPosts, myPostsList
            <ul>
                <li onClick={() => {
                     setSelectedPost(message.post._id)
+                    postID(message.post._id)
                 }}>
                    <Link to={`/post/${message.post._id}`}>Message Again: {message.post.title}</Link>
                </li>

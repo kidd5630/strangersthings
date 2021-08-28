@@ -7,7 +7,7 @@ import ReceivedMessages from './ReceivedMessages';
 
 import IndividualPost from './IndividualPost';
 
-const Profile = ({myUsername, userToken, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts, myPostsList, setMyPostsList, selectedPost, setSelectedPost}) => {
+const Profile = ({myUsername, userToken, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts, myPostsList, setMyPostsList, selectedPost, setSelectedPost, postID}) => {
 
     let match = useRouteMatch();
 
@@ -45,6 +45,7 @@ const Profile = ({myUsername, userToken, postDeleted, setPostDeleted, deleteItem
                 setMyPostsList={setMyPostsList}
                 setSelectedPost={setSelectedPost}
                 selectedPost={selectedPost}
+                postID={postID}
                 />
             </Route>
             <Route path={`${match.path}/sent-messages`}>
@@ -57,11 +58,13 @@ const Profile = ({myUsername, userToken, postDeleted, setPostDeleted, deleteItem
                 selectedPost={selectedPost}
                 setSelectedPost={setSelectedPost}
                 setSelectedPost={setSelectedPost}
-                selectedPost={selectedPost}/>
+                selectedPost={selectedPost}
+                postID={postID}/>
             </Route>
             <Route path={`${match.path}/received-messages`}>
                 <ReceivedMessages userToken={userToken} myUsername={myUsername} setSelectedPost={setSelectedPost}
-                selectedPost={selectedPost} />
+                selectedPost={selectedPost} 
+                postID={postID}/>
             </Route>
             <Route path="/post/:id">
             <IndividualPost 
@@ -73,6 +76,7 @@ const Profile = ({myUsername, userToken, postDeleted, setPostDeleted, deleteItem
                 setSelectedPost={setSelectedPost}
                 myPostList={myPostsList}
                 setMyPostsList={setMyPostsList}
+                postID={postID}
                 /> 
         </Route>
         <Route exact path="/profile">

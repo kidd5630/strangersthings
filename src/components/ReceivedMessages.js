@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Link, Switch, useRouteMatch, useParams} 
 
 import {fetchMyData, BASE_URL} from '../api'
 
-const ReceivedMessages = ({userToken, myUsername, setSelectedPost, selectedPost}) => {
+const ReceivedMessages = ({userToken, myUsername, setSelectedPost, selectedPost, postID}) => {
 
 const [myReceivedMessageList, setMyReceivedMessageList] = useState([]);
 
@@ -29,7 +29,8 @@ useEffect(async () => {
                             <div>
                                 <ul>
                                     <li onClick={() => {
-                                            setSelectedPost(message.post._id)
+                                          setSelectedPost(message.post._id)
+                                          postID(message.post._id)
                                         }}>
                                         <Link to={`/post/${message.post._id}`}>View My Post: {message.post.title}</Link> 
                                     </li>

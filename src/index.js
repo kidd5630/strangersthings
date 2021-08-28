@@ -84,6 +84,7 @@ const App = () => {
                 setMyPostsList={setMyPostsList}
                 selectedPost={selectedPost}
                 setSelectedPost={setSelectedPost}
+                postID={postID}
             />
         </Route>
         <Route path="/posts">

@@ -7,7 +7,7 @@ import MakePosts from './MakePosts'
 import { Link } from 'react-router-dom';
 
 const Myposts = ({userToken, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts, myPostsList, 
-    setMyPostsList, setSelectedPost, selectedPost}) => {
+    setMyPostsList, setSelectedPost, selectedPost, postID}) => {
 
 useEffect(async () => {
     try {
@@ -19,6 +19,7 @@ useEffect(async () => {
     }
     }, [postDeleted]);
    
+
    return (<div>
    <h1> My Posts</h1>
    <div id="allPosts">
@@ -27,6 +28,7 @@ useEffect(async () => {
              if(active) {
                 return <div key={_id}>
            <h3 onClick={() => {
+                postID(_id)
                 setSelectedPost(_id)
             }}>
               <Link to={`/post/${_id}`}>  {title} </Link>
@@ -38,7 +40,8 @@ useEffect(async () => {
            <ul>
                <li
                onClick={() => {
-                 setSelectedPost(_id)
+                postID(_id)
+                setSelectedPost(_id)
                }}> 
                <Link to={`/post/${_id}`}>Take Me To My Post</Link> 
                </li>
