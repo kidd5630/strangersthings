@@ -1,14 +1,15 @@
 import React, {useState, useEffect} from 'react';
-import {BrowserRouter as Router, Link, useRouteMatch, } from 'react-router-dom'
-import {fetchMyData, BASE_URL, fetchAllPosts, sendMessage} from '../api'
+import {fetchMyData, BASE_URL, fetchAllPosts, sendMessage, editPost} from '../api';
 
+import EditPost from './EditPost';
 
-const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts, 
-    setMyPostsList, myUsername, selectedPost, setSelectedPost}) => {
+const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts, myPostList, setMyPostsList, myUsername, selectedPost, setSelectedPost, updateItem, setMyEditedPost, myEditedPost}) => {
 
   const [message, setMessage] = useState('');
   const [myPostMessages, setMyPostMessages] = useState([])
-    
+
+  console.log("selectedPosts", selectedPost)
+
   async function send(postId){
     try{
       const response = await sendMessage(BASE_URL, postId, userToken, message);
@@ -40,7 +41,7 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
         <div id="allposts">
           {allPosts.map(post => {
             const {_id, title, description, price, author: {username}, location} = post
-
+            
             if(_id === selectedPost){
             return (<div key={_id}>
             <h3>{title}</h3>
@@ -51,14 +52,17 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
             {username === myUsername ?
             <>
             <div>
-            <button>Edit</button>
+            <button onClick={() => {
+            }}>Edit</button>
             <button 
               onClick={() => {
                   deleteItem(_id)}}>
               Delete
             </button>
+            {/* Edit Post here but innactive. On click we change to active? mypostsmessage set to active deactive on click  */}
             </div>
-            {myPostMessages && myPostMessages.map(message => { 
+            <EditPost selectedPost={selectedPost} userToken={userToken} allPosts={allPosts} setAllPosts={setAllPosts} myPostsList={myPostList} setMyPostsList={setMyPostsList} updateItem={updateItem} setMyEditedPost={setMyEditedPost} myEditedPost={myEditedPost}/>
+            {/* {myPostMessages && myPostMessages.map(message => { 
               if(message.fromUser.username !== myUsername && message.post._id === selectedPost ) {
                 return ( 
                     <div key={message._id}>
@@ -67,7 +71,7 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
                    </div> 
                      )
                }
-               })}
+               })} */}
             </>
             :
              <div>

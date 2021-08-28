@@ -32,7 +32,8 @@ const App = () => {
     const [myPassword, setMyPassword] = useState('');
     const [postDeleted, setPostDeleted] = useState(0);
     const [myPostsList, setMyPostsList] = useState([]);
-    const [selectedPost, setSelectedPost] = useState('')
+    const [selectedPost, setSelectedPost] = useState(getPostId())
+    const [myEditedPost, setMyEditedPost] = useState(0);
     
     useEffect(() => {
         fetchAllPosts()
@@ -40,13 +41,26 @@ const App = () => {
             setAllPosts(allPosts)
           })
           .catch(error => console.error(error))
-      }, [postDeleted]);
+    }, [postDeleted]);
       
     async function deleteItem(id){
-      const result = await deletePost(BASE_URL, id, userToken)
-      if(result.success){
-        setPostDeleted(postDeleted +1)
+        const result = await deletePost(BASE_URL, id, userToken)
+        if(result.success){
+            setPostDeleted(postDeleted +1)
+        }
+    }
+
+    function postID(post_ID) {
+        console.log(post_ID)
+        localStorage.removeItem('postId');
+        console.log(post_ID)
+        localStorage.setItem('postId', JSON.stringify(post_ID) )
+        
       }
+
+    function getPostId() {
+        const selectedpostID = JSON.parse(localStorage.getItem('postId'))
+        return selectedpostID
     }
 
     return (<Router>
@@ -85,15 +99,21 @@ const App = () => {
             setMyPostsList={setMyPostsList}
             selectedPost={selectedPost}
             setSelectedPost={setSelectedPost}
+            postID={postID}
         />
         </Route>
         <Route path="/post/:id">
             <IndividualPost 
                 myUsername={myUsername}
                 allPosts={allPosts}
+                setAllPosts={setAllPosts}
                 userToken={userToken}
                 selectedPost={selectedPost}
                 setSelectedPost={setSelectedPost}
+                myPostList={myPostsList}
+                setMyPostsList={setMyPostsList}
+                setMyEditedPost={setMyEditedPost}
+                myEditedPost={myEditedPost}
                 /> 
         </Route>
         <Route exact path="/"><Allposts allPosts={allPosts}

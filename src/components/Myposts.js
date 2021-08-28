@@ -19,8 +19,6 @@ useEffect(async () => {
     }
     }, [postDeleted]);
    
-
-
    return (<div>
    <h1> My Posts</h1>
    <div id="allPosts">
@@ -37,8 +35,14 @@ useEffect(async () => {
            <p>Price: {price}</p>
            <p>Location: {location}</p>
            <div>
-           <button>Edit</button>
-           <button onClick={() => {deleteItem(_id)}}>Delete</button>
+           <ul>
+               <li
+               onClick={() => {
+                 setSelectedPost(_id)
+               }}> 
+               <Link to={`/post/${_id}`}>Take Me To My Post</Link> 
+               </li>
+               </ul>
            </div>
            </div> 
              } else {

@@ -139,3 +139,46 @@ export async function sendMessage(url, postId, userToken, message) {
         console.error(error)
     }
 }
+
+export async function editPost( url, postId, userToken, title, description, price, location, deliver) {
+    
+    const postObj = { } 
+
+    if(title) {
+        postObj["title"] = title;
+    }
+
+    if(description) {
+        postObj["description"] = description;
+    }
+
+    if(price) {
+        postObj["price"] = price;
+    }
+
+    if(location) {
+        postObj["location"] = location;
+    }
+
+    if(deliver) {
+        postObj["willDeliver"] = deliver;
+    }
+
+    try {
+        const response = await fetch(`${url}/posts/${postId}`, {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + userToken
+            },
+            body: JSON.stringify({
+                post: postObj
+            })
+        })
+        const data = await response.json();
+        return data
+    } catch (error) {
+        console.error(error);
+    } 
+}
+

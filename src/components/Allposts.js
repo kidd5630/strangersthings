@@ -15,7 +15,7 @@ import {
 
 
 const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts, myPostsList, setMyPostsList, selectedPost,
-  setSelectedPost}) => {
+  setSelectedPost, postID}) => {
     
     if(userToken){return (
         <>
@@ -24,6 +24,7 @@ const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteIte
             const {_id, title, description, price, author: {username}, location} = post
             return <div key={_id}>
             <h3 onClick={() => {
+                 postID(_id)
                  setSelectedPost(_id)
                }}><Link to={`/post/${_id}`}>{title}</Link></h3>
             <p>{description}</p>
@@ -32,18 +33,22 @@ const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteIte
             <p>Location: {location}</p>
             {username === myUsername?
             <div>
-            <button>Edit</button>
-            <button 
-              onClick={() => {
-                  deleteItem(_id)}}>
-              Delete
-            </button>
+             <ul>
+               <li
+               onClick={() => {
+                 postID(_id)
+                 setSelectedPost(_id)
+               }}> 
+               <Link to={`/post/${_id}`}>Take Me To My Post</Link> 
+               </li>
+               </ul>
             </div>:
             <div>
               <ul>
                <li
                onClick={() => {
-                 setSelectedPost(_id)
+                postID(_id)
+                setSelectedPost(_id)
                }}> 
                <Link to={`/post/${_id}`}>Message About Post</Link> 
                </li>
@@ -63,7 +68,6 @@ const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteIte
         setMyPostsList={setMyPostsList}/>
         </>
         )}else{return (
-         
         <>
         <div id="allposts">
          {allPosts.map(post => {
