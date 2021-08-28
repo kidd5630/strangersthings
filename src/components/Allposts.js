@@ -16,16 +16,7 @@ import {
 
 const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts, myPostsList, setMyPostsList, selectedPost,
   setSelectedPost}) => {
-
-    // useEffect(() => {
-    //   fetchAllPosts()
-    //     .then((allPosts) => {
-    //       setAllPosts(allPosts)
-    //     })
-    //     .catch(error => console.error(error))
-    // }, [postDeleted]);
     
-    console.log(allPosts)
     if(userToken){return (
         <>
         <div id="allposts">

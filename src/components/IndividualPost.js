@@ -48,7 +48,8 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
             <p>Price: {price}</p>
             <p>Seller: {username}</p>
             <p>Location: {location}</p>
-            {username === myUsername?
+            {username === myUsername ?
+            <>
             <div>
             <button>Edit</button>
             <button 
@@ -57,16 +58,17 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
               Delete
             </button>
             </div>
-            {myPostMessages.map(message => { 
-              if(message.fromUser.username !== myUsername && message.post._id === selectedPosts ) {
+            {myPostMessages && myPostMessages.map(message => { 
+              if(message.fromUser.username !== myUsername && message.post._id === selectedPost ) {
                 return ( 
-                   <div key={message._id}>
-                     <h3>Message from: {message.fromUser.username}</h3>
-                     <p>{message.content}</p>
+                    <div key={message._id}>
+                      <h3>Message from: {message.fromUser.username}</h3>
+                      <p>{message.content}</p>
                    </div> 
                      )
                }
-              })}
+               })}
+            </>
             :
              <div>
               
