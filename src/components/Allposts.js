@@ -17,21 +17,24 @@ import {
 const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts, myPostsList, setMyPostsList, selectedPost,
   setSelectedPost}) => {
 
-    useEffect(() => {
-      fetchAllPosts()
-        .then((allPosts) => {
-          setAllPosts(allPosts)
-        })
-        .catch(error => console.error(error))
-    }, [postDeleted]);
+    // useEffect(() => {
+    //   fetchAllPosts()
+    //     .then((allPosts) => {
+    //       setAllPosts(allPosts)
+    //     })
+    //     .catch(error => console.error(error))
+    // }, [postDeleted]);
     
+    console.log(allPosts)
     if(userToken){return (
         <>
         <div id="allposts">
-          {allPosts.map(post => {
+          { allPosts && allPosts.map(post => {
             const {_id, title, description, price, author: {username}, location} = post
             return <div key={_id}>
-            <a><h3>{title}</h3></a>
+            <h3 onClick={() => {
+                 setSelectedPost(_id)
+               }}><Link to={`/post/${_id}`}>{title}</Link></h3>
             <p>{description}</p>
             <p>Price: {price}</p>
             <p>Seller: {username}</p>

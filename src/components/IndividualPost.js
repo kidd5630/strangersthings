@@ -8,7 +8,7 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
 
   const [message, setMessage] = useState('');
     
-  async function  send(postId){
+  async function send(postId){
     try{
       const response = await sendMessage(BASE_URL, postId, userToken, message);
       if(response.success){
@@ -19,19 +19,30 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
       }
     }
 
+    // useEffect(async () => {
+    //   try {
+    //       const results = await fetchMyData(BASE_URL, userToken)
+    //       const receivedMessageData = results.data.messages
+    //       //setMyReceivedMessageList(receivedMessageData)
+    //   } catch(error) {
+    //       console.error(error)
+    //   }
+    //   }, []);
+
   function emptyMessageForm(){
       setMessage('')
     }
 
-    useEffect(async () => {
-    try {
-        const result = await fetchAllPosts()
-    } catch(error) {
-        console.error(error)
-    }
-    }, [postDeleted]);
+    // useEffect(async () => {
+    // try {
+    //     const result = await fetchAllPosts()
+    // } catch(error) {
+    //     console.error(error)
+    // }
+    // }, [postDeleted]);
    
-    if(userToken){return (
+    if(userToken){
+      return (
         <>
         <div id="allposts">
           {allPosts.map(post => {
@@ -52,7 +63,18 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
                   deleteItem(_id)}}>
               Delete
             </button>
-            </div>:
+            </div>
+            // {myReceivedMessageList.map(message => { 
+            //   if(message.fromUser.username !== myUsername && message.post._id === selectedPosts ) {
+            //     return ( 
+            //        <div key={message._id}>
+            //          <h3>Message from: {message.fromUser.username}</h3>
+            //          <p>{message.content}</p>
+            //        </div> 
+            //          )
+            //    }
+            //   })}
+            :
              <div>
               
              <input type="text" placeholder="Your Message Here" value={message} 

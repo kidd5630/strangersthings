@@ -5,6 +5,8 @@ import Myposts from './Myposts';
 import SentMessages from './SentMessages';
 import ReceivedMessages from './ReceivedMessages';
 
+import IndividualPost from './IndividualPost';
+
 const Profile = ({myUsername, userToken, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts, myPostsList, setMyPostsList, selectedPost, setSelectedPost}) => {
 
     let match = useRouteMatch();
@@ -41,6 +43,8 @@ const Profile = ({myUsername, userToken, postDeleted, setPostDeleted, deleteItem
                 setAllPosts={setAllPosts}
                 myPostsList={myPostsList} 
                 setMyPostsList={setMyPostsList}
+                setSelectedPost={setSelectedPost}
+                selectedPost={selectedPost}
                 />
             </Route>
             <Route path={`${match.path}/sent-messages`}>
@@ -51,14 +55,27 @@ const Profile = ({myUsername, userToken, postDeleted, setPostDeleted, deleteItem
                 myPostsList={myPostsList} 
                 setMyPostsList={setMyPostsList} 
                 selectedPost={selectedPost}
-                setSelectedPost={setSelectedPost}/>
+                setSelectedPost={setSelectedPost}
+                setSelectedPost={setSelectedPost}
+                selectedPost={selectedPost}/>
             </Route>
             <Route path={`${match.path}/received-messages`}>
-                <ReceivedMessages userToken={userToken} myUsername={myUsername} />
+                <ReceivedMessages userToken={userToken} myUsername={myUsername} setSelectedPost={setSelectedPost}
+                selectedPost={selectedPost} />
             </Route>
             <Route exact path={`${match.path}`}>
-                <ReceivedMessages userToken={userToken} myUsername={myUsername} />
+                <ReceivedMessages userToken={userToken} myUsername={myUsername} setSelectedPost={setSelectedPost}
+                selectedPost={selectedPost} />
             </Route>
+            <Route path="/post/:id">
+            <IndividualPost 
+                myUsername={myUsername}
+                allPosts={allPosts}
+                userToken={userToken}
+                selectedPost={selectedPost}
+                setSelectedPost={setSelectedPost}
+                /> 
+        </Route>
         </Switch>
     </div>
         

@@ -30,7 +30,9 @@ const SentMessages = ({userToken, myUsername, allPosts, setAllPosts, myPostsList
            <p>{message.content}</p>
            <div>
            <ul>
-               <li>
+               <li onClick={() => {
+                    setSelectedPost(message.post._id)
+                }}>
                    <Link to={`/post/${message.post._id}`}>Message Again: {message.post.title}</Link>
                </li>
            </ul>

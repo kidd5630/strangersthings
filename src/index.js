@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
@@ -20,7 +20,8 @@ import {
 
 import {
     deletePost,
-    BASE_URL
+    BASE_URL,
+    fetchAllPosts
 } from './api';
 
 
@@ -33,6 +34,14 @@ const App = () => {
     const [myPostsList, setMyPostsList] = useState([]);
     const [selectedPost, setSelectedPost] = useState('')
     
+    useEffect(() => {
+        fetchAllPosts()
+          .then((allPosts) => {
+            setAllPosts(allPosts)
+          })
+          .catch(error => console.error(error))
+      }, [postDeleted]);
+      
     async function deleteItem(id){
       const result = await deletePost(BASE_URL, id, userToken)
       if(result.success){
@@ -85,9 +94,10 @@ const App = () => {
                 userToken={userToken}
                 selectedPost={selectedPost}
                 setSelectedPost={setSelectedPost}
-                />
-                
+                /> 
         </Route>
+        <Route exact path="/"><Allposts allPosts={allPosts}
+            setAllPosts={setAllPosts}/></Route>
         </Switch>
         </div>
         ):
