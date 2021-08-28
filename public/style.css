@@ -1,0 +1,59 @@
+* {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#title{
+    background-color: rgb(107, 231, 231);
+    text-decoration: inherit;   
+    color:black;
+    margin-left: 5px;
+    display: flex;
+    flex-direction: row;
+    height: 10vh;
+    justify-content: space-between;
+    padding: 4px;
+    align-items: center;
+    box-shadow: 1px 1px 15px gray;
+}
+.title{
+    color: black;
+}
+.navBtn{
+    text-decoration: none;
+    padding: 15px;
+    display: inline-block;
+    margin: 3px;
+    place-self: center;
+    font-size: 14px;
+    background-color: rgb(241,239,243);
+    border-radius: 10%;
+    margin-right: 10px;
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+.welcomMessage{
+    color:black;
+    /* flex-direction: column; */
+    text-align: center;
+    height: 10vh;
+    justify-content: center;
+    font-size: 50px;
+}
+.profileBtn{
+    text-decoration: none;
+    padding: 2px;
+    margin: 3px;
+    display: inline-block;
+    
+}
+.profileMenu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}

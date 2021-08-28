@@ -7,10 +7,11 @@ const Title = ({userToken, setUserToken,setMyUsername}) => {
 let history = useHistory()
 
     return (<div id="title">
-       <Link to="/posts"><h1>
+       <Link to="/posts" style={{ textDecoration: 'none', fontSize: '26px' }}><h1 className="title">
             Stranger's Things
         </h1> </Link> 
         {userToken? <nav>
+            <div className="profileBox">
             <ul>
             <Link to="/profile">
                 <li className="navBtn">PROFILE</li>
@@ -25,6 +26,7 @@ let history = useHistory()
                 >LOGOUT
                 </button>
             </ul>
+            </div>
         </nav>:
         <nav>
             <ul>

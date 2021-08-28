@@ -12,27 +12,29 @@ const Profile = ({myUsername, userToken, postDeleted, setPostDeleted, deleteItem
     let match = useRouteMatch();
 
     return (<Router><div>
-    <h1 className="welcomMessage">Welcome {myUsername}</h1>
-    <nav>
+        <div className="profileMenu">
+        <h1 className="welcomMessage">Welcome {myUsername}</h1>
+        <nav>
             <ul>
             <li className="profileBtn" >
-                <Link to={`${match.url}/my-posts`}>
+                <Link to={`${match.url}/my-posts`} style={{ textDecoration: 'none'}}>
                     My Posts 
                 </Link>
             </li>
             <li className="profileBtn" >
-                <Link to={`${match.url}/sent-messages`}>
+                <Link to={`${match.url}/sent-messages`} style={{ textDecoration: 'none'}}>
                     Sent Messages 
                 </Link>
             </li>
             <li className="profileBtn" >
-                <Link to={`${match.url}/received-messages`}>
+                <Link to={`${match.url}/received-messages`} style={{ textDecoration: 'none'}}>
                     Received Messages 
                 </Link>
             </li>
             </ul>
            
         </nav>
+        </div>
         <Switch>
             <Route path={`${match.path}/my-posts`}>
                 <Myposts userToken={userToken}
