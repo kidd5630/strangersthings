@@ -20,9 +20,9 @@ useEffect(async () => {
     }, [postDeleted]);
    
 
-   return (<div>
+   return (<div >
    <h1 className="profileBodyHeader" > My Posts</h1>
-   <div className="allPostsContainer">
+   <div className="myPostsContainer">
          {myPostsList.map(post => {
              const {_id, title, description, price, author: {username}, location, active} = post
              if(active) {
