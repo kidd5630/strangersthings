@@ -117,8 +117,19 @@ const App = () => {
                 myEditedPost={myEditedPost}
                 /> 
         </Route>
-        <Route exact path="/"><Allposts allPosts={allPosts}
-            setAllPosts={setAllPosts}/></Route>
+        <Route exact path="/"><Profile myUsername={myUsername}
+                userToken={userToken}
+                postDeleted={postDeleted}
+                setPostDeleted={setPostDeleted}
+                deleteItem={deleteItem}
+                allPosts={allPosts}
+                setAllPosts={setAllPosts}
+                myPostsList={myPostsList} 
+                setMyPostsList={setMyPostsList}
+                selectedPost={selectedPost}
+                setSelectedPost={setSelectedPost}
+                postID={postID}
+            /></Route>
         </Switch>
         </div>
         ):

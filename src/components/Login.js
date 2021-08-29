@@ -23,7 +23,7 @@ let history = useHistory()
                 setMyUsername(myUsername)
                 localStorage.setItem('userToken', JSON.stringify(token));
                 localStorage.setItem('myUsername', JSON.stringify(myUsername));
-                history.push("/posts")
+                history.push("/profile")
             } else {
                 alert(results.error.message)
             }
