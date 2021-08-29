@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import {removeCurrentUserToken, removeCurrentUsername}
 from '../auth'
-const Title = ({userToken, setUserToken,setMyUsername}) => {
+const Title = ({userToken, setUserToken, setMyUsername, setSelectedPost}) => {
 
 let history = useHistory()
 
@@ -20,9 +20,12 @@ let history = useHistory()
                 <li className="navBtn">POSTS</li>
                 </Link>
                 <button className="navBtn"
-                onClick={() => {setUserToken(removeCurrentUserToken())
-                setMyUsername(removeCurrentUsername())
-                history.push("/")}}
+                onClick={() => {
+                    setUserToken(removeCurrentUserToken());
+                    setMyUsername(removeCurrentUsername());
+                    setSelectedPost(localStorage.removeItem('postId'));
+                    history.push("/");
+                }}
                 >LOGOUT
                 </button>
             </ul>

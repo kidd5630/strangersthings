@@ -83,7 +83,7 @@ const Profile = ({myUsername, userToken, postDeleted, setPostDeleted, deleteItem
         </Route>
         <Route exact path="/profile">
                 <ReceivedMessages userToken={userToken} myUsername={myUsername} setSelectedPost={setSelectedPost}
-                selectedPost={selectedPost} />
+                selectedPost={selectedPost} postID={postID} />
             </Route>
         </Switch>
     </div>

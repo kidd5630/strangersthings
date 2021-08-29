@@ -24,7 +24,7 @@ useEffect(async () => {
             {myReceivedMessageList.map(message => { 
                 if(message.fromUser.username !== myUsername) {
                     return ( <div className="messages" key={message._id}>
-                        <h3>Message from: {message.fromUser.username}</h3>
+                        <h3>MESSAGE FROM: {message.fromUser.username}</h3>
                         <p>{message.content}</p>
                             <div>
                                 <ul>

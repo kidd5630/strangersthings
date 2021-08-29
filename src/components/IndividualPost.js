@@ -36,7 +36,7 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
     if(userToken){
       return (
         <>
-        <div classname="ipForm">
+        <div className="ipForm">
           {allPosts.map(post => {
             const {_id, title, description, price, author: {username}, location} = post
             
@@ -50,26 +50,33 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
             {username === myUsername ?
             <>
             <div>
-            <button onClick={() => {
+            <button className="edit button" onClick={() => {
             }}>Edit</button>
-            <button 
+            <button className="delete button"
               onClick={() => {
                   deleteItem(_id)}}>
               Delete
             </button>
             {/* Edit Post here but innactive. On click we change to active? mypostsmessage set to active deactive on click  */}
             </div>
+            <div className="ipInteractiveBox">
+            <div className="editFeild">
             <EditPost selectedPost={selectedPost} userToken={userToken} allPosts={allPosts} setAllPosts={setAllPosts} myPostsList={myPostList} setMyPostsList={setMyPostsList} updateItem={updateItem} setMyEditedPost={setMyEditedPost} myEditedPost={myEditedPost}/>
-            {/* {myPostMessages && myPostMessages.map(message => { 
+            </div>
+            <div className="messageFeild">
+            <h2 className="messageFeildHeader">MESSAGES FOR THIS POST</h2>
+            {myPostMessages && myPostMessages.map(message => { 
               if(message.fromUser.username !== myUsername && message.post._id === selectedPost ) {
                 return ( 
-                    <div key={message._id}>
-                      <h3>Message from: {message.fromUser.username}</h3>
+                    <div className="messages" key={message._id}>
+                      <h3>MESSAGE FROM: {message.fromUser.username}</h3>
                       <p>{message.content}</p>
                    </div> 
                      )
                }
-               })} */}
+               })}
+              </div>
+            </div>
             </>
             :
              <div>

@@ -150,7 +150,6 @@ a.profileLink:hover {
 }
 
 .messages > h3, .messages > p {
-    padding-top: 15px;
     padding-left: 10px;
     margin: 10px;
 }
@@ -192,11 +191,12 @@ a.postsLink:hover {
 }
 
 .messages {
-    height: 20vh;
     margin: 10px;
     border-radius: 10px;
     box-shadow: 1px 1px 15px rgb(150, 223, 252);
-    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5px;
 }
 
 p {
@@ -288,4 +288,56 @@ p {
     color: white;
     font-family: Indie Flower;
     font-size: larger;
+}
+
+.ipForm {
+    margin-top: 75px;
+}
+
+.ipInteractiveBox {
+    margin-top:25px;
+}
+
+.button {
+    padding: 15px;
+    width: 10%;
+    align-self: center;
+    border-radius: 5%;
+    margin-left: 15px;
+    margin-top: 10px;
+    font-family: Indie Flower;
+    font-size: larger;
+}
+
+.edit.button {
+    background-color: navy;
+    color: white;
+}
+
+.delete.button {
+    border: 1px solid rgb(107, 231, 231);
+}
+
+.edit.button:hover {
+    background-color: rgb(107, 231, 231);
+    border: 1px solid navy;
+    color: black;
+}
+
+.delete.button:hover {
+    border: 3px solid red;
+}
+
+.editFeild{
+    display: none;
+}
+
+.messageFeild {
+    display: active;
+}
+
+.messageFeildHeader {
+    text-align: center;
+    color: navy;
+    font-family: Cuprum;
 }

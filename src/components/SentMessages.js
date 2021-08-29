@@ -26,8 +26,7 @@ const SentMessages = ({userToken, myUsername, allPosts, setAllPosts, myPostsList
          {mySentMessageList.map(message => { 
             if(message.fromUser.username === myUsername) {
                 return <div className="messages" key={message._id}>
-           <h3>Sent by Me</h3>
-           <p>{message.content}</p>
+           {/* <h3>Sent by Me</h3> */}
            <div>
            <ul>
                <li onClick={() => {
@@ -38,6 +37,7 @@ const SentMessages = ({userToken, myUsername, allPosts, setAllPosts, myPostsList
                </li>
            </ul>
            </div>
+           <p>{message.content}</p>
            </div> 
            } else {
                return
