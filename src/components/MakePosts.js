@@ -35,12 +35,13 @@ const MakePosts = ({userToken, allPosts, setAllPosts, myPostsList, setMyPostsLis
     }
     
     return (
-    <section id="postsBox">
-        <h1>Make Posts Here</h1>
-            <form onSubmit={post}>
-                <div>
-                    <label>Title</label>
-                    <input type="text" 
+    <section className="makePostsAside">
+        <h1 className="makePostTitle">Make Posts Here</h1>
+            <form className="makePostForm"onSubmit={post}>
+                <div className="makePostContent">
+                    <label className="makePostLabel">Title</label>
+                    <input className="makePostInput" 
+                        type="text" 
                         placeholder="Title" 
                         value={title} 
                         required
@@ -48,9 +49,10 @@ const MakePosts = ({userToken, allPosts, setAllPosts, myPostsList, setMyPostsLis
                             setTitle(event.target.value);
                         }}/>
                 </div>
-                <div>
-                    <label>Description</label>
-                    <input type="text" 
+                <div className="makePostContent">
+                    <label className="makePostLabel">Description</label>
+                    <input className="makePostInput" 
+                        type="text" 
                         placeholder="Description" 
                         value={description}
                         required
@@ -58,9 +60,10 @@ const MakePosts = ({userToken, allPosts, setAllPosts, myPostsList, setMyPostsLis
                             setDescription(event.target.value);
                         }}/>
                 </div>
-                <div>
-                    <label>Price</label>
-                    <input type="text" 
+                <div className="makePostContent">
+                    <label className="makePostLabel">Price</label>
+                    <input className="makePostInput" 
+                    type="text" 
                     placeholder="Price" 
                     value={price} 
                     required
@@ -68,24 +71,27 @@ const MakePosts = ({userToken, allPosts, setAllPosts, myPostsList, setMyPostsLis
                         setPrice(event.target.value)
                     }}/>
                 </div>
-                <div>
-                    <label>Location</label>
-                    <input type="text" 
+                <div className="makePostContent">
+                    <label className="makePostLabel">Location</label>
+                    <input className="makePostInput" 
+                    type="text" 
                     placeholder="Location" value={location}
                     onChange={(event) => { 
                         setLocation(event.target.value)
                     }}/>
                 </div>
-                <div>
-                    <input type="checkbox" 
+                <div className="makePostCheck">
+                    <input className="checkbox"
+                    type="checkbox" 
                     id="willDeliver" 
                     checked={deliver} 
                     onChange={() => {
                         document.querySelector('#willDeliver:checked') ? setDeliver(true): setDeliver(false)
                     }}/>
-                    <label>Will Deliver</label>
+                    <label className="makePostLabel">Will Deliver</label>
                 </div>
-                <button type="submit">Make Post!</button>
+                <button className="makePostSubmit"
+                type="submit">Make Post!</button>
             </form>
     </section>
     )

@@ -57,8 +57,6 @@ const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteIte
             </div>
             }
            </div>
-
-           
         })
         }
         <div className="allPostsAside">  
