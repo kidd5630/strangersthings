@@ -25,7 +25,6 @@
 
 .allPostsContainer > .allposts {
     grid-column-start: 1;
-    overflow: scroll;
 }
 
 .allPostsContainer > .allPostsAside {
