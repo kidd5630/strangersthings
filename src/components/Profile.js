@@ -14,20 +14,20 @@ const Profile = ({myUsername, userToken, postDeleted, setPostDeleted, deleteItem
     return (<Router><div>
         <div className="profileMenu">
         <h1 className="welcomMessage">Welcome {myUsername}</h1>
-        <nav>
+        <nav className="profile">
             <ul>
             <li className="profileBtn" >
-                <Link to={`${match.url}/my-posts`} style={{ textDecoration: 'none'}}>
+                <Link to={`${match.url}/my-posts`} className="profileLink" >
                     My Posts 
                 </Link>
             </li>
             <li className="profileBtn" >
-                <Link to={`${match.url}/sent-messages`} style={{ textDecoration: 'none'}}>
+                <Link to={`${match.url}/sent-messages`} className="profileLink" >
                     Sent Messages 
                 </Link>
             </li>
             <li className="profileBtn" >
-                <Link to={`${match.url}/received-messages`} style={{ textDecoration: 'none'}}>
+                <Link to={`${match.url}/received-messages`} className="profileLink" >
                     Received Messages 
                 </Link>
             </li>

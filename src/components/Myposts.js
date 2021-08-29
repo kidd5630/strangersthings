@@ -21,29 +21,29 @@ useEffect(async () => {
    
 
    return (<div>
-   <h1> My Posts</h1>
-   <div id="allPosts">
+   <h1 className="profileBodyHeader"> My Posts</h1>
+   <div >
          {myPostsList.map(post => {
              const {_id, title, description, price, author: {username}, location, active} = post
              if(active) {
-                return <div key={_id}>
+                return <div className="allposts myPosts" key={_id}>
            <h3 onClick={() => {
                 postID(_id)
                 setSelectedPost(_id)
             }}>
-              <Link to={`/post/${_id}`}>  {title} </Link>
+              <Link to={`/post/${_id}`} className="postsLink myPosts">  {title} </Link>
             </h3>
-           <p>{description}</p>
-           <p>Price: {price}</p>
-           <p>Location: {location}</p>
+           <p className="description">{description}</p>
+           <p><b>Price:</b> {price}</p>
+           <p><b>Location:</b> {location}</p>
            <div>
            <ul>
                <li
                onClick={() => {
                 postID(_id)
                 setSelectedPost(_id)
-               }}> 
-               <Link to={`/post/${_id}`}>Take Me To My Post</Link> 
+               }} className="postLi myPosts"> 
+               <Link to={`/post/${_id}`} className="postsLink myPosts">Take Me To My Post</Link> 
                </li>
                </ul>
            </div>

@@ -21,11 +21,11 @@ const SentMessages = ({userToken, myUsername, allPosts, setAllPosts, myPostsList
 
 
    return (<div>
-   <h1> Sent Messages</h1>
-   <div id="allposts">
+   <h1 className="profileBodyHeader"> Sent Messages</h1>
+   <div >
          {mySentMessageList.map(message => { 
             if(message.fromUser.username === myUsername) {
-                return <div key={message._id}>
+                return <div className="messages" key={message._id}>
            <h3>Sent by Me</h3>
            <p>{message.content}</p>
            <div>
@@ -33,8 +33,8 @@ const SentMessages = ({userToken, myUsername, allPosts, setAllPosts, myPostsList
                <li onClick={() => {
                     setSelectedPost(message.post._id)
                     postID(message.post._id)
-                }}>
-                   <Link to={`/post/${message.post._id}`}>Message Again: {message.post.title}</Link>
+                }} className="postLi">
+                   <Link to={`/post/${message.post._id}`} className="postsLink">Message Again: {message.post.title}</Link>
                </li>
            </ul>
            </div>

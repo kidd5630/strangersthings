@@ -38,17 +38,17 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
     if(userToken){
       return (
         <>
-        <div id="allposts">
+        <div >
           {allPosts.map(post => {
             const {_id, title, description, price, author: {username}, location} = post
             
             if(_id === selectedPost){
-            return (<div key={_id}>
+            return (<div className="allposts" key={_id}>
             <h3>{title}</h3>
-            <p>{description}</p>
-            <p>Price: {price}</p>
-            <p>Seller: {username}</p>
-            <p>Location: {location}</p>
+            <p className="description">{description}</p>
+            <p><b>Price:</b> {price}</p>
+            <p><b>Seller:</b> {username}</p>
+            <p><b>Location:</b> {location}</p>
             {username === myUsername ?
             <>
             <div>

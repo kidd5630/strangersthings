@@ -19,18 +19,18 @@ const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteIte
     
     if(userToken){return (
         <>
-        <div id="allposts">
+        <div >
           { allPosts && allPosts.map(post => {
             const {_id, title, description, price, author: {username}, location} = post
-            return <div key={_id}>
+            return <div className="allposts" key={_id}>
             <h3 onClick={() => {
                  postID(_id)
                  setSelectedPost(_id)
-               }}><Link to={`/post/${_id}`}>{title}</Link></h3>
-            <p>{description}</p>
-            <p>Price: {price}</p>
-            <p>Seller: {username}</p>
-            <p>Location: {location}</p>
+               }}><Link to={`/post/${_id}`} className="postsLink">{title}</Link></h3>
+            <p className="description">{description}</p>
+            <p><b>Price:</b> {price}</p>
+            <p><b>Seller:</b> {username}</p>
+            <p><b>Location:</b> {location}</p>
             {username === myUsername?
             <div>
              <ul>
@@ -38,8 +38,8 @@ const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteIte
                onClick={() => {
                  postID(_id)
                  setSelectedPost(_id)
-               }}> 
-               <Link to={`/post/${_id}`}>Take Me To My Post</Link> 
+               }} className="postLi"> 
+               <Link to={`/post/${_id}`} className="postsLink">Take Me To My Post</Link> 
                </li>
                </ul>
             </div>:
@@ -49,8 +49,8 @@ const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteIte
                onClick={() => {
                 postID(_id)
                 setSelectedPost(_id)
-               }}> 
-               <Link to={`/post/${_id}`}>Message About Post</Link> 
+               }} className="postLi"> 
+               <Link to={`/post/${_id}`} className="postsLink">Message About Post</Link> 
                </li>
                </ul>
             </div>
@@ -69,14 +69,14 @@ const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteIte
         </>
         )}else{return (
         <>
-        <div id="allposts">
+        <div >
          {allPosts.map(post => {
-           return <div key={post._id}>
+           return <div className="allposts" key={post._id}>
            <h3>{post.title}</h3>
-           <p>{post.description}</p>
-           <p>Price: {post.price}</p>
-           <p>Seller: {post.author.username}</p>
-           <p>Location: {post.location}</p>
+           <p className="description">{post.description}</p>
+           <p><b>Price:</b> {post.price}</p>
+           <p><b>Seller:</b> {post.author.username}</p>
+           <p><b>Location:</b> {post.location}</p>
            </div>
          })
         }

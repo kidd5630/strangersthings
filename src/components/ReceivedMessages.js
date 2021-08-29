@@ -19,11 +19,11 @@ useEffect(async () => {
 
 
    return (<div>
-        <h1> Received Messages</h1>
-        <div id="allposts">
+        <h1 className="profileBodyHeader"> Received Messages</h1>
+        <div >
             {myReceivedMessageList.map(message => { 
                 if(message.fromUser.username !== myUsername) {
-                    return ( <div key={message._id}>
+                    return ( <div className="messages" key={message._id}>
                         <h3>Message from: {message.fromUser.username}</h3>
                         <p>{message.content}</p>
                             <div>
@@ -31,8 +31,8 @@ useEffect(async () => {
                                     <li onClick={() => {
                                           setSelectedPost(message.post._id)
                                           postID(message.post._id)
-                                        }}>
-                                        <Link to={`/post/${message.post._id}`}>View My Post: {message.post.title}</Link> 
+                                        }} className="postLi">
+                                        <Link to={`/post/${message.post._id}`} className="postsLink">View My Post: {message.post.title}</Link> 
                                     </li>
                                 </ul>
                             </div>
