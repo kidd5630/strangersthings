@@ -38,19 +38,28 @@ const Register = ({setUserToken, setMyPassword, myPassword, setMyUsername, myUse
     }
     
     return (
-    <section>
-        <h1>Register</h1>
-            <form onSubmit={registerUser}>
+    <section className="registerContainer">
+        <h1 className="registerTitle">Register</h1>
+            <form className="registerForm"onSubmit={registerUser}>
                 <div>
-                    <input type="text" placeholder="Username" onChange={(event) => {setMyUsername(event.target.value)}} required/>
+                    <input type="text" placeholder="Username" 
+                    className="registerInput"
+                    onChange={(event) => {setMyUsername(event.target.value)}} required/>
                  </div>
                 <div>
-                    <input type="text" placeholder="Password" onChange={(event) => {setMyPassword(event.target.value)}} required/>
+                    <input type="text" placeholder="Password"
+                    className="registerInput"
+                     onChange={(event) => {setMyPassword(event.target.value)}} required/>
                 </div>
                 <div>
-                    <input type="text" placeholder="Confirm Password" onChange={(event) => {setConfirmMyPassword(event.target.value)}} required/>
+                    <input type="text" placeholder="Confirm Password" 
+                    required
+                    className="registerInput"
+                    onChange={(event) => {setConfirmMyPassword(event.target.value)}}/>
                 </div>
-                <button type="submit">REGISTER</button>
+                <button 
+                className="registerbtn"
+                type="submit">REGISTER</button>
             </form>
     </section>
     )
