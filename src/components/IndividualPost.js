@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {fetchMyData, BASE_URL, fetchAllPosts, sendMessage, editPost} from '../api';
+import DeletedPost from './DeletedPost';
 
 import EditPost from './EditPost';
 
@@ -45,9 +46,9 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
         <>
         <div className="ipForm">
           {allPosts.map(post => {
-            const {_id, title, description, price, author: {username}, location} = post
-            
-            if(_id === selectedPost){
+            const {_id, title, description, price, author: {username}, location, active} = post
+            if(active && _id === selectedPost){
+              console.log("ip", post)
             return (<div className="allposts" key={_id}>
             <h3>{title}</h3>
             <p className="description">{description}</p>
@@ -63,11 +64,23 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
                   deleteItem(_id)}}>
               Delete
             </button>
-            {/* Edit Post here but innactive. On click we change to active? mypostsmessage set to active deactive on click  */}
             </div>
             <div className="ipInteractiveBox">
             <div className={`editFeild-${isActiveEdit ? "inactive" : "active"}`}>
-            <EditPost selectedPost={selectedPost} userToken={userToken} allPosts={allPosts} setAllPosts={setAllPosts} myPostsList={myPostList} setMyPostsList={setMyPostsList} updateItem={updateItem} setMyEditedPost={setMyEditedPost} myEditedPost={myEditedPost} isActiveEdit={isActiveEdit} setActiveEdit={setActiveEdit} isActiveMessage={isActiveMessage} setActiveMessage={setActiveMessage} ToggleClass={ToggleClass}/>
+            <EditPost selectedPost={selectedPost} 
+              userToken={userToken} 
+              allPosts={allPosts} 
+              setAllPosts={setAllPosts} 
+              myPostsList={myPostList} 
+              setMyPostsList={setMyPostsList} 
+              updateItem={updateItem} 
+              setMyEditedPost={setMyEditedPost} 
+              myEditedPost={myEditedPost} 
+              isActiveEdit={isActiveEdit} 
+              setActiveEdit={setActiveEdit} 
+              isActiveMessage={isActiveMessage} 
+              setActiveMessage={setActiveMessage} 
+              ToggleClass={ToggleClass}/>
             </div>
             <div className={`messageFeild-${isActiveMessage ?  "active" : "inactive"}`}>
             <h2 className="messageFeildHeader">MESSAGES FOR THIS POST</h2>

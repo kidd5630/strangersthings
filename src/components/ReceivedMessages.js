@@ -21,8 +21,10 @@ useEffect(async () => {
    return (<div>
         <h1 className="profileBodyHeader"> Received Messages</h1>
         <div >
+            
             {myReceivedMessageList.map(message => { 
                 if(message.fromUser.username !== myUsername) {
+                    
                     return ( <div className="messages" key={message._id}>
                         <h3>MESSAGE FROM: {message.fromUser.username}</h3>
                         <p>{message.content}</p>
