@@ -19,7 +19,7 @@ const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteIte
     
     if(userToken){return (
         <>
-        <div >
+        <div className="allPostsContainer">
           { allPosts && allPosts.map(post => {
             const {_id, title, description, price, author: {username}, location} = post
             return <div className="allposts" key={_id}>
@@ -69,7 +69,9 @@ const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteIte
         </>
         )}else{return (
         <>
-        <div >
+       
+        <div className="allPostsContainer">
+           <Aside />
          {allPosts.map(post => {
            return <div className="allposts" key={post._id}>
            <h3>{post.title}</h3>
@@ -81,7 +83,6 @@ const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteIte
          })
         }
         </div>
-       <Aside />
         </>
         )
     }

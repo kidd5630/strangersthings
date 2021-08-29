@@ -8,18 +8,25 @@
 #root {
     font-family: Arial, Helvetica, sans-serif;
 }
+.allPostsContainer{
+    display: fixed;
+    padding-top: 15vh;
+    ;
+}
 
 #title{
+    width: 100%;
     background-color: rgb(107, 231, 231);
     text-decoration: inherit;   
     color:black;
     display: flex;
     flex-direction: row;
-    height: 10vh;
+    height: 15vh;
     justify-content: space-between;
     padding: 4px;
     align-items: center;
     box-shadow: 1px 1px 15px gray;
+    position: fixed;
 }
 .title{
     color: black;
@@ -45,9 +52,14 @@
     background-color: #b9cdda;
     cursor: pointer;
 }
+.aside{
+    word-break: break-word;
+    text-align: center;
+    
+}
 
 .welcomMessage{
-    padding-top: 50px;
+    padding-top: 40px;
     color:black;
     text-align: center;
     height: 10vh;
@@ -97,8 +109,11 @@ a.profileLink:hover {
     margin-left: 5px;
 }
 
+
 .allposts{
-    height: 30vh;
+    display: block;
+    flex-wrap: wrap;
+    height: 40vh;
     margin: 10px;
     border-radius: 10px;
     box-shadow: 1px 1px 15px gray;
