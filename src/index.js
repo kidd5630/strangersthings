@@ -71,7 +71,7 @@ const App = () => {
         {
         userToken?(<div>
         <Switch>
-        <Route path="/profile">
+        <Route exact path="/profile">
             <Profile myUsername={myUsername}
                 userToken={userToken}
                 postDeleted={postDeleted}
