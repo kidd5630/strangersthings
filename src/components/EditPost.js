@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {editPost, BASE_URL} from '../api'
 
 
-const EditPost = ({userToken, setMyEditedPost, myEditedPost, allPosts, setAllPosts, myPostsList, setMyPostsList, selectedPost, updateItem}) => {
+const EditPost = ({userToken, allPosts, setAllPosts, selectedPost, isActiveEdit, setActiveEdit, isActiveMessage, setActiveMessage, ToggleClass}) => {
 
 
     const [title, setTitle] = useState('');
@@ -18,19 +18,15 @@ const EditPost = ({userToken, setMyEditedPost, myEditedPost, allPosts, setAllPos
         setLocation('');
         setDeliver(false)
     }
-    
-    // useEffect(() => {
-        
-    //     }, [myEditedPost]);
 
     async function edit(e) {
         e.preventDefault();
             try {
                 const results = await editPost(BASE_URL, selectedPost, userToken, title, description, price, location, deliver);
+                console.log(results)
                 if(results.success){
-                    const updatedPost = results.data.post
                     setAllPosts([...allPosts])
-                   // setMyPostsList([...myPostsList, updatedPost])
+                    ToggleClass()
                     resetForm();
                 }
             }catch(error) {

@@ -291,7 +291,11 @@ p {
 }
 
 .ipForm {
-    margin-top: 75px;
+    position: absolute;
+    margin-top: 100px;
+    width: 100vw;
+    overflow: scroll;
+    height: 100vh;
 }
 
 .ipInteractiveBox {
@@ -318,22 +322,32 @@ p {
     border: 1px solid rgb(107, 231, 231);
 }
 
-.edit.button:hover {
+.edit.button:hover, .sendMessageBtn:hover {
     background-color: rgb(107, 231, 231);
     border: 1px solid navy;
     color: black;
+    cursor: pointer;
 }
 
 .delete.button:hover {
     border: 3px solid red;
+    cursor: pointer;
 }
 
-.editFeild{
+.editFeild-inactive{
     display: none;
 }
 
-.messageFeild {
+.editFeild-active{
     display: active;
+}
+
+.messageFeild-active {
+    display: active;
+}
+
+.messageFeild-inactive {
+    display: none;
 }
 
 .messageFeildHeader {
@@ -341,3 +355,34 @@ p {
     color: navy;
     font-family: Cuprum;
 }
+
+.sendMessageFeild {
+    margin-left: 15px;
+    display: flex;
+    align-items: baseline;
+   
+}
+
+.sendMessageInput {
+    border: 1px solid navy;
+    height: 40px;
+    width: 30%;
+    border-radius: 5%;
+    padding: 2px;
+    text-align: center;
+}
+
+.sendMessageInput:hover {
+    font-weight: bold;
+}
+
+.sendMessageBtn {
+    border-radius: 5%;
+    height: 40px;
+    width: 20%;
+    margin-left: 15px;
+    font-family: Indie Flower;
+    background-color: navy;
+    color: white;
+}
+

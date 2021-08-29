@@ -79,6 +79,7 @@ const Profile = ({myUsername, userToken, postDeleted, setPostDeleted, deleteItem
                 myPostList={myPostsList}
                 setMyPostsList={setMyPostsList}
                 postID={postID}
+                deleteItem={deleteItem}
                 /> 
         </Route>
         <Route exact path="/profile">

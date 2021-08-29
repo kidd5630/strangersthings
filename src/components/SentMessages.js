@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
 import {fetchMyData, BASE_URL} from '../api'
-import {BrowserRouter as Router, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Link, } from 'react-router-dom';
 
 const SentMessages = ({userToken, myUsername, allPosts, setAllPosts, myPostsList, setMyPostsList, selectedPost,
     setSelectedPost, postID}) => {

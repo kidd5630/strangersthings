@@ -7,6 +7,13 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
 
   const [message, setMessage] = useState('');
   const [myPostMessages, setMyPostMessages] = useState([])
+  const [isActiveEdit, setActiveEdit] = useState("false");
+  const [isActiveMessage, setActiveMessage] = useState("true");
+
+  const ToggleClass = () => {
+    setActiveEdit(!isActiveEdit);
+    setActiveMessage(!isActiveMessage)
+  };
 
   async function send(postId){
     try{
@@ -50,8 +57,7 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
             {username === myUsername ?
             <>
             <div>
-            <button className="edit button" onClick={() => {
-            }}>Edit</button>
+            <button className="edit button" onClick={ToggleClass}>Edit</button>
             <button className="delete button"
               onClick={() => {
                   deleteItem(_id)}}>
@@ -60,10 +66,10 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
             {/* Edit Post here but innactive. On click we change to active? mypostsmessage set to active deactive on click  */}
             </div>
             <div className="ipInteractiveBox">
-            <div className="editFeild">
-            <EditPost selectedPost={selectedPost} userToken={userToken} allPosts={allPosts} setAllPosts={setAllPosts} myPostsList={myPostList} setMyPostsList={setMyPostsList} updateItem={updateItem} setMyEditedPost={setMyEditedPost} myEditedPost={myEditedPost}/>
+            <div className={`editFeild-${isActiveEdit ? "inactive" : "active"}`}>
+            <EditPost selectedPost={selectedPost} userToken={userToken} allPosts={allPosts} setAllPosts={setAllPosts} myPostsList={myPostList} setMyPostsList={setMyPostsList} updateItem={updateItem} setMyEditedPost={setMyEditedPost} myEditedPost={myEditedPost} isActiveEdit={isActiveEdit} setActiveEdit={setActiveEdit} isActiveMessage={isActiveMessage} setActiveMessage={setActiveMessage} ToggleClass={ToggleClass}/>
             </div>
-            <div className="messageFeild">
+            <div className={`messageFeild-${isActiveMessage ?  "active" : "inactive"}`}>
             <h2 className="messageFeildHeader">MESSAGES FOR THIS POST</h2>
             {myPostMessages && myPostMessages.map(message => { 
               if(message.fromUser.username !== myUsername && message.post._id === selectedPost ) {
@@ -79,12 +85,11 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
             </div>
             </>
             :
-             <div>
-              
-             <input type="text" placeholder="Your Message Here" value={message} 
+             <div className="sendMessageFeild">
+             <input className="sendMessageInput" type="text" placeholder="Your Message Here" value={message} 
              required
              onChange={(event) => {setMessage(event.target.value)}} />
-             <button onClick={() => {send(_id)}}>Send Your Message</button>
+             <button className="sendMessageBtn" onClick={() => {send(_id)}}>Send Your Message</button>
          </div>
             }
            </div>
