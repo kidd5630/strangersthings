@@ -199,7 +199,7 @@ p {
     flex-direction: column;
 }
 .loginTitle{
-    font-size: 60px;
+    font-size: 70px;
     color: navy;
     font-family: Indie Flower;
     text-decoration: underline;
@@ -214,11 +214,49 @@ p {
 .loginInput{
     border: 1px solid navy;
     height: 40px;
-    padding-left: 15px;
+    padding-left: 85px;
 }
 .loginBtn{
     margin-top: 15px;
     padding: 5px;
+    width: 75%;
+    align-self: center;
+    border-radius: 5%;
+    background-color: navy;
+    color: white;
+    font-family: Indie Flower;
+    font-size: larger;
+}
+
+.registerContainer{
+    display: flex;
+    padding-top: 150px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.registerTitle{
+    font-size: 60px;
+    color: navy;
+    font-family: Indie Flower;
+    text-decoration: underline;
+}
+.registerForm{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid navy;
+    padding: 10px;
+    background-color: rgb(107, 231, 231);
+}
+.registerInput{
+    border: 1px solid navy;
+    height: 40px;
+    padding-left:100px;
+    margin-bottom: 15px;
+}
+.registerbtn{
+    margin-top: -5px;
+    padding: 15px;
     width: 75%;
     align-self: center;
     border-radius: 5%;
