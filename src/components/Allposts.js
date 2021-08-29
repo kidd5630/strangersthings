@@ -61,18 +61,22 @@ const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteIte
            
         })
         }
-        </div>
+        <div className="allPostsAside">  
         <MakePosts allPosts={allPosts} 
         setAllPosts={setAllPosts} 
         userToken={userToken} 
         myPostsList={myPostsList} 
         setMyPostsList={setMyPostsList}/>
+         </div>
+         </div>
         </>
         )}else{return (
         <>
        
         <div className="allPostsContainer">
-           <Aside />
+        <div className="allPostsAside">  
+        <Aside />
+        </div>
          {allPosts.map(post => {
            return <div className="allposts" key={post._id}>
            <h3 className="postTitle">{post.title}</h3>
@@ -83,6 +87,7 @@ const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteIte
            </div>
          })
         }
+         
         </div>
         </>
         )

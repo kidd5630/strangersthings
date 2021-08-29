@@ -11,14 +11,32 @@
 #root {
     font-family: Arial, Helvetica, sans-serif;
 }
-.allPostsContainer{
-    display: fixed;
+
+.allPostsContainer {
     padding-top: 15vh;
     font-family: Cuprum;
     color: navy;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    height: 100vh;
+    
 }
 
-#title{
+.allPostsContainer > .allposts {
+    grid-column-start: 1;
+    overflow: scroll;
+}
+
+.allPostsContainer > .allPostsAside {
+    grid-column-start: 2;
+    grid-row-end: 2;
+    align-self: center;
+    float: right;
+
+}
+
+#title {
     width: 100%;
     background-color: rgb(107, 231, 231);
     text-decoration: inherit;   
@@ -31,12 +49,14 @@
     box-shadow: 1px 1px 15px rgb(150, 223, 252);
     position: fixed;
 }
-.title{
+
+.title {
     color: navy;
     text-decoration: underline;
     font-family: Indie Flower;
 }
-.navBtn{
+
+.navBtn {
     text-decoration: none;
     padding: 15px;
     display: inline-block;
@@ -58,14 +78,15 @@
     background-color: #b9cdda;
     cursor: pointer;
 }
-.aside{
+
+.aside {
     word-break: break-word;
     text-align: center;
-    font-family: Cuprum;
-    
+    font-family: Cuprum; 
+    position: fixed;
 }
 
-.welcomMessage{
+.welcomMessage {
     padding-top: 40px;
     color:navy;
     text-align: center;
@@ -109,7 +130,6 @@ a.profileLink:hover {
     height: 20vh;
     border-bottom: solid 1px black;
     box-shadow: 1px 1px 15px rgb(150, 223, 252);
-    
 }
 
 .profileBodyHeader {
@@ -119,7 +139,6 @@ a.profileLink:hover {
     color: navy;
     font-family: Cuprum;
 }
-
 
 .allposts{
     display: block;
@@ -148,21 +167,19 @@ a.profileLink:hover {
 }
 
 .allposts.myPosts > h3 {
-    
     font-weight: bold;
     font-size: 26px;
 }
+
 .postTitle{
     text-decoration: underline;
-
 }
 
 a.postsLink {
     padding-top: 10px;
     text-decoration: none;
     text-transform: uppercase;
-    color: navy;
-    
+    color: navy;   
 }
 
 a.postsLink:hover {
@@ -198,12 +215,14 @@ p {
     align-items: center;
     flex-direction: column;
 }
+
 .loginTitle{
     font-size: 60px;
     color: navy;
     font-family: Indie Flower;
     text-decoration: underline;
 }
+
 .loginForm{
     display: flex;
     flex-direction: column;
@@ -211,11 +230,13 @@ p {
     padding: 10px;
     background-color: rgb(107, 231, 231);
 }
+
 .loginInput{
     border: 1px solid navy;
     height: 40px;
     padding-left: 15px;
 }
+
 .loginBtn{
     margin-top: 15px;
     padding: 5px;
@@ -226,4 +247,8 @@ p {
     color: white;
     font-family: Indie Flower;
     font-size: larger;
+}
+
+#postBox {
+    position: fixed;
 }

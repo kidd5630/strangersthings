@@ -21,8 +21,8 @@ useEffect(async () => {
    
 
    return (<div>
-   <h1 className="profileBodyHeader"> My Posts</h1>
-   <div>
+   <h1 className="profileBodyHeader" > My Posts</h1>
+   <div className="allPostsContainer">
          {myPostsList.map(post => {
              const {_id, title, description, price, author: {username}, location, active} = post
              if(active) {
@@ -54,11 +54,13 @@ useEffect(async () => {
     
          })
         }
+        <div className="allPostsAside">
         <MakePosts allPosts={allPosts}
         setAllPosts={setAllPosts}
         userToken={userToken}
         myPostsList={myPostsList} 
         setMyPostsList={setMyPostsList}/>
+        </div>
         </div>
     </div>)
         
