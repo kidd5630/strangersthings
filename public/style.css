@@ -157,7 +157,6 @@ a.profileLink:hover {
 }
 
 .messages > h3, .messages > p {
-    padding-top: 15px;
     padding-left: 10px;
     margin: 10px;
 }
@@ -199,11 +198,12 @@ a.postsLink:hover {
 }
 
 .messages {
-    height: 20vh;
     margin: 10px;
     border-radius: 10px;
     box-shadow: 1px 1px 15px rgb(150, 223, 252);
-    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5px;
 }
 
 p{
@@ -296,6 +296,104 @@ p{
     font-family: Indie Flower;
     font-size: larger;
 }
+
+
+.ipForm {
+    position: absolute;
+    margin-top: 100px;
+    width: 100vw;
+    overflow: scroll;
+    height: 100vh;
+}
+
+.ipInteractiveBox {
+    margin-top:25px;
+}
+
+.button {
+    padding: 15px;
+    width: 10%;
+    align-self: center;
+    border-radius: 5%;
+    margin-left: 15px;
+    margin-top: 10px;
+    font-family: Indie Flower;
+    font-size: larger;
+}
+
+.edit.button {
+    background-color: navy;
+    color: white;
+}
+
+.delete.button {
+    border: 1px solid rgb(107, 231, 231);
+}
+
+.edit.button:hover, .sendMessageBtn:hover {
+    background-color: rgb(107, 231, 231);
+    border: 1px solid navy;
+    color: black;
+    cursor: pointer;
+}
+
+.delete.button:hover {
+    border: 3px solid red;
+    cursor: pointer;
+}
+
+.editFeild-inactive{
+    display: none;
+}
+
+.editFeild-active{
+    display: active;
+}
+
+.messageFeild-active {
+    display: active;
+}
+
+.messageFeild-inactive {
+    display: none;
+}
+
+.messageFeildHeader {
+    text-align: center;
+    color: navy;
+    font-family: Cuprum;
+}
+
+.sendMessageFeild {
+    margin-left: 15px;
+    display: flex;
+    align-items: baseline;
+   
+}
+
+.sendMessageInput {
+    border: 1px solid navy;
+    height: 40px;
+    width: 30%;
+    border-radius: 5%;
+    padding: 2px;
+    text-align: center;
+}
+
+.sendMessageInput:hover {
+    font-weight: bold;
+}
+
+.sendMessageBtn {
+    border-radius: 5%;
+    height: 40px;
+    width: 20%;
+    margin-left: 15px;
+    font-family: Indie Flower;
+    background-color: navy;
+    color: white;
+}
+
 .makePostsAside{
     display:flex;
     flex-direction: column;
@@ -349,3 +447,4 @@ p{
 .makePostCheck{
     align-self: center;
 }
+

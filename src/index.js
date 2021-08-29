@@ -51,9 +51,7 @@ const App = () => {
     }
 
     function postID(post_ID) {
-        console.log(post_ID)
         localStorage.removeItem('postId');
-        console.log(post_ID)
         localStorage.setItem('postId', JSON.stringify(post_ID) )
         
       }
@@ -68,11 +66,12 @@ const App = () => {
         <Title 
         userToken={userToken}
         setUserToken={setUserToken} 
-        setMyUsername={setMyUsername}/>
+        setMyUsername={setMyUsername}
+        setSelectedPost={setSelectedPost}/>
         {
         userToken?(<div>
         <Switch>
-        <Route path="/profile">
+        <Route exact path="/profile">
             <Profile myUsername={myUsername}
                 userToken={userToken}
                 postDeleted={postDeleted}
