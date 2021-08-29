@@ -36,16 +36,17 @@ let history = useHistory()
     }
 
     return (
-        <section>
-            <h1>Login</h1>
-                <form onSubmit={loginUser}>
+        <section className="loginContainer">
+            <h1 className="loginTitle">Login</h1>
+                <form className="loginForm" onSubmit={loginUser}>
                     <div>
-                        <input type="text" placeholder="Username" onChange={(event) => {setMyUsername(event.target.value)}} required/>
-                     </div>
-                    <div>
-                        <input type="text" placeholder="Password" onChange={(event) => {setMyPassword(event.target.value)}} required/>
+                        <input type="text" placeholder="Username" className="loginInput" onChange={(event) => {setMyUsername(event.target.value)}} required/>
                     </div>
-                    <button type="submit">LOGIN</button>
+                    <br></br>
+                    <div>
+                        <input type="text" placeholder="Password" className="loginInput" onChange={(event) => {setMyPassword(event.target.value)}} required/>
+                    </div>
+                    <button className="loginBtn"type="submit">LOGIN</button>
                 </form>
         </section>
         )

@@ -23,7 +23,8 @@ const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteIte
           { allPosts && allPosts.map(post => {
             const {_id, title, description, price, author: {username}, location} = post
             return <div className="allposts" key={_id}>
-            <h3 onClick={() => {
+            <h3 className="postTitle"
+                 onClick={() => {
                  postID(_id)
                  setSelectedPost(_id)
                }}><Link to={`/post/${_id}`} className="postsLink">{title}</Link></h3>
@@ -74,7 +75,7 @@ const Allposts = ({userToken, myUsername, postDeleted, setPostDeleted, deleteIte
            <Aside />
          {allPosts.map(post => {
            return <div className="allposts" key={post._id}>
-           <h3>{post.title}</h3>
+           <h3 className="postTitle">{post.title}</h3>
            <p className="description">{post.description}</p>
            <p><b>Price:</b> {post.price}</p>
            <p><b>Seller:</b> {post.author.username}</p>

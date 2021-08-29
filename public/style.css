@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Cuprum:ital@1&family=Indie+Flower&display=swap');
+
+
 * {
     padding: 0;
     border: 0;
@@ -11,25 +14,27 @@
 .allPostsContainer{
     display: fixed;
     padding-top: 15vh;
-    ;
+    font-family: Cuprum;
+    color: navy;
 }
 
 #title{
     width: 100%;
     background-color: rgb(107, 231, 231);
     text-decoration: inherit;   
-    color:black;
     display: flex;
     flex-direction: row;
     height: 15vh;
     justify-content: space-between;
     padding: 4px;
     align-items: center;
-    box-shadow: 1px 1px 15px gray;
+    box-shadow: 1px 1px 15px rgb(150, 223, 252);
     position: fixed;
 }
 .title{
-    color: black;
+    color: navy;
+    text-decoration: underline;
+    font-family: Indie Flower;
 }
 .navBtn{
     text-decoration: none;
@@ -44,8 +49,9 @@
     width: 100px;
     text-align: center;
     font-weight: bold;
-    color: black;
-    border: .5px solid navy;
+    color: navy;
+    border: 3px solid navy;
+    font-family: Indie Flower;
 }
 
 .navBtn:hover {
@@ -55,15 +61,18 @@
 .aside{
     word-break: break-word;
     text-align: center;
+    font-family: Cuprum;
     
 }
 
 .welcomMessage{
     padding-top: 40px;
-    color:black;
+    color:navy;
     text-align: center;
     height: 10vh;
     font-size: 40px;
+    padding-top: 150px;
+    font-family: Cuprum;
 }
 
 .profileBtn{
@@ -77,18 +86,18 @@
     align-items: center;
     text-transform: uppercase;
     font-size: 14px;
-    color: black;
     
 }
 
 a.profileLink {
+    font-family: Cuprum;
     text-decoration: none; 
     color: teal;
 }
 
 a.profileLink:hover {
-    color: rgb(107, 231, 231);
-    text-decoration: underline rgb(107, 231, 231);
+    color: navy;
+    text-decoration: underline navy;
     font-size: 16px;
     cursor: pointer;
 }
@@ -99,7 +108,7 @@ a.profileLink:hover {
     align-items: center;
     height: 20vh;
     border-bottom: solid 1px black;
-    box-shadow: 1px 1px 15px gray;
+    box-shadow: 1px 1px 15px rgb(150, 223, 252);
     
 }
 
@@ -107,6 +116,8 @@ a.profileLink:hover {
     height: 10vh;
     padding-top: 20px;
     margin-left: 5px;
+    color: navy;
+    font-family: Cuprum;
 }
 
 
@@ -116,7 +127,7 @@ a.profileLink:hover {
     height: 40vh;
     margin: 10px;
     border-radius: 10px;
-    box-shadow: 1px 1px 15px gray;
+    box-shadow: 1px 1px 15px rgb(150, 223, 252);
     align-items: flex-start;
 }
 
@@ -141,17 +152,21 @@ a.profileLink:hover {
     font-weight: bold;
     font-size: 26px;
 }
+.postTitle{
+    text-decoration: underline;
+
+}
 
 a.postsLink {
     padding-top: 10px;
     text-decoration: none;
     text-transform: uppercase;
-    color: rgb(107, 231, 231);
+    color: navy;
     
 }
 
 a.postsLink:hover {
-    color:teal;
+    color:rgb(107, 231, 231);
 }
 
 .postLi {
@@ -164,7 +179,7 @@ a.postsLink:hover {
     height: 20vh;
     margin: 10px;
     border-radius: 10px;
-    box-shadow: 1px 1px 15px gray;
+    box-shadow: 1px 1px 15px rgb(150, 223, 252);
     align-items: flex-start;
 }
 
@@ -175,4 +190,40 @@ p {
 .description {
     color: rgb(65, 62, 62);
     font-weight: bold;
+}
+
+.loginContainer{
+    display: flex;
+    padding-top: 150px;
+    align-items: center;
+    flex-direction: column;
+}
+.loginTitle{
+    font-size: 60px;
+    color: navy;
+    font-family: Indie Flower;
+    text-decoration: underline;
+}
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid navy;
+    padding: 10px;
+    background-color: rgb(107, 231, 231);
+}
+.loginInput{
+    border: 1px solid navy;
+    height: 40px;
+    padding-left: 15px;
+}
+.loginBtn{
+    margin-top: 15px;
+    padding: 5px;
+    width: 75%;
+    align-self: center;
+    border-radius: 5%;
+    background-color: navy;
+    color: white;
+    font-family: Indie Flower;
+    font-size: larger;
 }
