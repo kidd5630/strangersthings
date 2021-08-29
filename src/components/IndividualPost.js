@@ -8,8 +8,6 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
   const [message, setMessage] = useState('');
   const [myPostMessages, setMyPostMessages] = useState([])
 
-  console.log("selectedPosts", selectedPost)
-
   async function send(postId){
     try{
       const response = await sendMessage(BASE_URL, postId, userToken, message);
@@ -38,7 +36,7 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
     if(userToken){
       return (
         <>
-        <div >
+        <div classname="ipForm">
           {allPosts.map(post => {
             const {_id, title, description, price, author: {username}, location} = post
             
