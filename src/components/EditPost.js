@@ -35,58 +35,60 @@ const EditPost = ({userToken, allPosts, setAllPosts, selectedPost, isActiveEdit,
     }
     
     return (
-    <section id="postsBox">
-        <h1>Edit Posts Here</h1>
-            <form onSubmit={edit}>
-                <div>
-                    <label>Title</label>
-                    <input type="text" 
-                        placeholder="Title" 
-                        value={title} 
+        <section className="editPostsAside">
+            <h1 className="editPostTitle">Edit Posts Here</h1>
+                <form className="edutPostForm" onSubmit={edit}>
+                    <div className="editPostContent">
+                        <label className="editPostLabel">Title</label>
+                    </div>
+                    <div className="editPostContent">
+                        <input className="editPostInput" type="text" 
+                            placeholder="Title" 
+                            value={title} 
+                            onChange={(event) => {
+                                setTitle(event.target.value);
+                            }}/>
+                    </div>
+                    <div className="editPostContent">
+                        <label className="editPostLabel">Description</label>
+                        <input className="editPostInput" type="text" 
+                            placeholder="Description" 
+                            value={description}
+                            onChange={(event) => {
+                                setDescription(event.target.value);
+                            }}/>
+                    </div>
+                    <div className="editPostContent">
+                        <label className="editPostLabel" >Price</label>
+                        <input className="editPostInput" type="text" 
+                        placeholder="Price" 
+                        value={price} 
                         onChange={(event) => {
-                            setTitle(event.target.value);
+                            setPrice(event.target.value)
                         }}/>
-                </div>
-                <div>
-                    <label>Description</label>
-                    <input type="text" 
-                        placeholder="Description" 
-                        value={description}
-                        onChange={(event) => {
-                            setDescription(event.target.value);
+                    </div>
+                    <div className="editPostContent">
+                        <label className="editPostLabel">Location</label>
+                        <input className="editPostInput" type="text" 
+                        placeholder="Location" value={location}
+                        onChange={(event) => { 
+                            setLocation(event.target.value)
                         }}/>
-                </div>
-                <div>
-                    <label>Price</label>
-                    <input type="text" 
-                    placeholder="Price" 
-                    value={price} 
-                    onChange={(event) => {
-                        setPrice(event.target.value)
-                    }}/>
-                </div>
-                <div>
-                    <label>Location</label>
-                    <input type="text" 
-                    placeholder="Location" value={location}
-                    onChange={(event) => { 
-                        setLocation(event.target.value)
-                    }}/>
-                </div>
-                <div>
-                    <input type="checkbox" 
-                    id="willDeliver" 
-                    checked={deliver} 
-                    onChange={() => {
-                        document.querySelector('#willDeliver:checked') ? setDeliver(true): setDeliver(false)
-                    }}/>
-                    <label>Will Deliver</label>
-                </div>
-                <button type="submit">Update Post!</button>
-            </form>
-    </section>
-    )
-}
+                    </div>
+                    <div className="editPostCheck">
+                        <input className="checkbox" type="checkbox" 
+                        id="willDeliver" 
+                        checked={deliver} 
+                        onChange={() => {
+                            document.querySelector('#willDeliver:checked') ? setDeliver(true): setDeliver(false)
+                        }}/>
+                        <label className="editPostLabel">Will Deliver</label>
+                    </div>
+                    <button className="editPostSubmit" type="submit">Update Post!</button>
+                </form>
+        </section>
+        )
+    }
 
 
 export default EditPost;

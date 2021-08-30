@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {fetchMyData, BASE_URL, fetchAllPosts, sendMessage, editPost} from '../api';
-import DeletedPost from './DeletedPost';
+
 
 import EditPost from './EditPost';
 

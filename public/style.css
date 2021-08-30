@@ -395,7 +395,7 @@ p{
     font-size: larger;
 }
 
-.makePostsAside{
+.makePostsAside {
     display:flex;
     flex-direction: column;
     word-break: break-word;
@@ -405,36 +405,54 @@ p{
     margin-left: 55px;
     margin-top: -95px;
 }
-.makePostTitle{
+
+/* .editPostsAside {
+    display:flex;
+    flex-direction: column;
+    word-break: break-word;
+    font-family: Cuprum; 
+    position: relative;
+    float:center;
+    margin-left: 55px;
+    margin-top: -95px;
+} */
+
+.makePostTitle, .editPostTitle {
     font-size: 50px;
     color: navy;
     font-family: Indie Flower;
     text-decoration: underline;
 }
-.makePostForm{
+.makePostForm, .editPostForm {
     display: flex;
     flex-direction: column;
     border: 2px solid navy;
     padding: 10px;
     background-color: rgb(107, 231, 231);
 }
-.makePostLabel{
+.makePostLabel, .editPostLabel {
     font-weight: bold;
     font-family: Indie Flower;
     font-size: larger;
 }
-.makePostInput{
+.makePostInput, .editPostInput {
     border: 1px solid navy;
     height: 40px;
     padding-left: 85px;
     align-self: center;
 }
-.makePostContent{
+.makePostContent {
     display: flex;
     justify-content: space-between;
     padding-bottom: 15px;
 }
-.makePostSubmit{
+
+.editPostContent {
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 15px;
+}
+.makePostSubmit, .editPostSubmit {
     margin-top: 15px;
     padding: 5px;
     width: 75%;
@@ -445,7 +463,8 @@ p{
     font-family: Indie Flower;
     font-size: larger;
 }
-.makePostCheck{
+.makePostCheck, .editPostCheck {
     align-self: center;
 }
+
 
