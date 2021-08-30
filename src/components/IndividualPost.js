@@ -48,13 +48,14 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
           {allPosts.map(post => {
             const {_id, title, description, price, author: {username}, location, active} = post
             if(active && _id === selectedPost){
-              console.log("ip", post)
             return (<div className="allposts" key={_id}>
+            <div className="IPText">
             <h3>{title}</h3>
             <p className="description">{description}</p>
             <p><b>Price:</b> {price}</p>
             <p><b>Seller:</b> {username}</p>
             <p><b>Location:</b> {location}</p>
+            </div>
             {username === myUsername ?
             <>
             <div>
