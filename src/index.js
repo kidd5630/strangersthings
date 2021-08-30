@@ -103,11 +103,7 @@ const App = () => {
                 setAllPosts={setAllPosts}
                 userToken={userToken}
                 selectedPost={selectedPost}
-                setSelectedPost={setSelectedPost}
-                myPostList={myPostsList}
-                setMyPostsList={setMyPostsList}
-                setMyEditedPost={setMyEditedPost}
-                myEditedPost={myEditedPost}
+                deleteItem={deleteItem}
                 /> 
         </Route>
         <Route exact path="/"><Profile myUsername={myUsername}

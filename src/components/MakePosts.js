@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
-import {createPost, BASE_URL} from '../api'
+import {
+    createPost, 
+    BASE_URL
+} from '../api'
 
 
 const MakePosts = ({userToken, allPosts, setAllPosts}) => {
@@ -20,15 +23,15 @@ const MakePosts = ({userToken, allPosts, setAllPosts}) => {
     
     async function post(e) {
         e.preventDefault();
-            try {
-                const results = await createPost(BASE_URL, userToken, title, description, price, location, deliver);
+        try {
+            const results = await createPost(BASE_URL, userToken, title, description, price, location, deliver);
 
-                if(results.success){
-                    const result = results.data.post
-                    setAllPosts([...allPosts, result])
-                    resetForm();
-                }
-            }catch(error) {
+            if(results.success){
+                const result = results.data.post;
+                setAllPosts([...allPosts, result]);
+                resetForm();
+            }
+        } catch(error) {
             console.error(error)
         }
     }

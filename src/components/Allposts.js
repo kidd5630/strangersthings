@@ -8,7 +8,7 @@ const Allposts = ({userToken, myUsername, allPosts, setAllPosts, setSelectedPost
   const [searchTerm, setSearchTerm] = useState('');
     
   function postMatches(post, text) {
-    const {title, description, price, author: {username}, location}= post
+    const {title, description, price, author: {username}, location}= post;
     
     if(title.toLowerCase().includes(text.toLowerCase()) || description.toLowerCase().includes(text.toLowerCase()) || price.toLowerCase().includes(text.toLowerCase()) || username.toLowerCase().includes(text.toLowerCase()) || location.toLowerCase().includes(text.toLowerCase()) ) {
         return true;
@@ -29,7 +29,7 @@ const Allposts = ({userToken, myUsername, allPosts, setAllPosts, setSelectedPost
             onChange={(event) => { setSearchTerm(event.target.value)}}/>
         </div>
         {allPosts && postsToDisplay.map(post => {
-          const {_id, title, description, price, author: {username}, location} = post
+          const {_id, title, description, price, author: {username}, location} = post;
           
           return (
             <div className="allposts" key={_id}>
@@ -108,4 +108,4 @@ const Allposts = ({userToken, myUsername, allPosts, setAllPosts, setSelectedPost
 }
 
 
-export default Allposts
+export default Allposts;
