@@ -51,6 +51,8 @@ const EditPost = ({userToken, allPosts, setAllPosts, selectedPost, isActiveEdit,
                     </div>
                     <div className="editPostContent">
                         <label className="editPostLabel">Description</label>
+                    </div>
+                    <div className="editPostContent">
                         <input className="editPostInput" type="text" 
                             placeholder="Description" 
                             value={description}
@@ -60,6 +62,8 @@ const EditPost = ({userToken, allPosts, setAllPosts, selectedPost, isActiveEdit,
                     </div>
                     <div className="editPostContent">
                         <label className="editPostLabel" >Price</label>
+                    </div> 
+                    <div className="editPostContent">
                         <input className="editPostInput" type="text" 
                         placeholder="Price" 
                         value={price} 
@@ -69,6 +73,8 @@ const EditPost = ({userToken, allPosts, setAllPosts, selectedPost, isActiveEdit,
                     </div>
                     <div className="editPostContent">
                         <label className="editPostLabel">Location</label>
+                    </div>
+                    <div className="editPostContent">
                         <input className="editPostInput" type="text" 
                         placeholder="Location" value={location}
                         onChange={(event) => { 

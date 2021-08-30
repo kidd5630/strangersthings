@@ -63,6 +63,7 @@
     align-items: center;
     box-shadow: 1px 1px 15px rgb(150, 223, 252);
     position: fixed;
+    z-index: 1;
 }
 .title {
     color: navy;
@@ -307,7 +308,7 @@ p{
 }
 
 .ipInteractiveBox {
-    margin-top:25px;
+    margin-top:105px;
 }
 
 .button {
@@ -450,9 +451,8 @@ p{
 .editPostContent {
     display: flex;
     justify-content: flex-start;
-    padding-bottom: 15px;
 }
-.makePostSubmit, .editPostSubmit {
+.makePostSubmit {
     margin-top: 15px;
     padding: 5px;
     width: 75%;
@@ -463,8 +463,22 @@ p{
     font-family: Indie Flower;
     font-size: larger;
 }
+.editPostSubmit{
+    margin-top: 15px;
+    padding: 5px;
+    width: 20%;
+    align-self: center;
+    border-radius: 5%;
+    background-color: navy;
+    color: white;
+    font-family: Indie Flower;
+    font-size: larger;
+}
 .makePostCheck, .editPostCheck {
     align-self: center;
+}
+.IPText{
+    margin-top: 40px;
 }
 
 
