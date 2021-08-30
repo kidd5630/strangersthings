@@ -7,11 +7,9 @@
     margin: 0;
     box-sizing: border-box;
 }
-
 #root {
     font-family: Arial, Helvetica, sans-serif;
 }
-
 .allPostsContainer {
     padding-top: 15vh;
     font-family: Cuprum;
@@ -21,11 +19,9 @@
     grid-template-rows: 1fr 2fr;
     height: 100vh;
 }
-
 .allPostsContainer > .allposts {
     grid-column-start: 1;
 }
-
 .allPostsContainer > .allPostsAside {
     grid-column-start: 2;
     grid-row-end: 2;
@@ -33,7 +29,7 @@
     float: right;
 }
 .myPostsContainer{
-    padding-top: 15vh;
+    padding-top: 2vh;
     font-family: Cuprum;
     color: navy;
     display: grid;
@@ -87,12 +83,10 @@
     border: 3px solid navy;
     font-family: Indie Flower;
 }
-
 .navBtn:hover {
     background-color: #b9cdda;
     cursor: pointer;
 }
-
 .aside {
     word-break: break-word;
     text-align: center;
@@ -149,18 +143,32 @@ a.profileLink:hover {
 }
 
 .allPostsHeader {
+    margin-top: 10px;
+    margin-bottom: 25px;
     height: 10vh;
     padding-top: 35px;
     margin-left: 5px;
     color: navy;
-    font-family: Cuprum;
+    position:fixed;
+    font-family: Indie Flower;
+    display: flex;
+    background-color: white;
+    width: 100%;
 }
-
+.searchBar{
+    border-bottom: 2px solid navy;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    width: 25%;
+}
 .allposts{
     display: block;
     flex-wrap: wrap;
     height: 40vh;
     margin: 10px;
+    margin-top: 75px;
+    margin-bottom: -70px;
     border-radius: 10px;
     box-shadow: 1px 1px 15px rgb(150, 223, 252);
 }
@@ -174,38 +182,34 @@ a.profileLink:hover {
     padding-top: 10px;
     padding-left: 10px;
     margin: 10px;
-}
+    color: navy;
+    font-family: Cuprum; 
 
+}
 .allposts.myPosts {
     padding-top: 8px;
 }
-
 .allposts.myPosts > h3 {
     font-weight: bold;
     font-size: 26px;
 }
-
 .postTitle{
     text-decoration: underline;
 }
-
 a.postsLink {
     padding-top: 10px;
     text-decoration: none;
     text-transform: uppercase;
     color: navy;   
 }
-
 a.postsLink:hover {
     color:rgb(107, 231, 231);
 }
-
 .postLi {
     padding-top: 10px;
     padding-left: 20px;
     list-style-type: none;
 }
-
 .messages {
     margin: 10px;
     border-radius: 10px;
@@ -214,30 +218,25 @@ a.postsLink:hover {
     flex-direction: column;
     padding-bottom: 5px;
 }
-
 p{
     color: gray;
 }
-
 .description {
-    color: rgb(65, 62, 62);
+    color: navy;
     font-weight: bold;
 }
-
 .loginContainer {
     display: flex;
     padding-top: 150px;
     align-items: center;
     flex-direction: column;
 }
-
 .loginTitle {
     font-size: 70px;
     color: navy;
     font-family: Indie Flower;
     text-decoration: underline;
 }
-
 .loginForm {
     display: flex;
     flex-direction: column;
@@ -245,13 +244,11 @@ p{
     padding: 10px;
     background-color: rgb(107, 231, 231);
 }
-
 .loginInput {
     border: 1px solid navy;
     height: 40px;
     padding-left: 85px;
 }
-
 .loginBtn {
     margin-top: 15px;
     padding: 5px;
@@ -263,18 +260,15 @@ p{
     font-family: Indie Flower;
     font-size: larger;
 }
-
 #postBox {
     position: fixed;
 }
-
 .registerContainer {
     display: flex;
     padding-top: 150px;
     align-items: center;
     flex-direction: column;
 }
-
 .registerTitle {
     font-size: 60px;
     color: navy;
@@ -305,20 +299,16 @@ p{
     font-family: Indie Flower;
     font-size: larger;
 }
-
-
 .ipForm {
     position: absolute;
-    margin-top: 100px;
+    margin-top: 90px;
     width: 100vw;
     overflow: scroll;
     height: 100vh;
 }
-
 .ipInteractiveBox {
     margin-top:105px;
 }
-
 .button {
     padding: 15px;
     width: 10%;
@@ -329,57 +319,46 @@ p{
     font-family: Indie Flower;
     font-size: larger;
 }
-
 .edit.button {
     background-color: navy;
     color: white;
 }
-
 .delete.button {
     border: 1px solid rgb(107, 231, 231);
 }
-
 .edit.button:hover, .sendMessageBtn:hover {
     background-color: rgb(107, 231, 231);
     border: 1px solid navy;
     color: black;
     cursor: pointer;
 }
-
 .delete.button:hover {
     border: 3px solid red;
     cursor: pointer;
 }
-
 .editFeild-inactive{
     display: none;
 }
-
 .editFeild-active{
     display: active;
 }
-
 .messageFeild-active {
     display: active;
 }
-
 .messageFeild-inactive {
     display: none;
 }
-
 .messageFeildHeader {
     text-align: center;
     color: navy;
     font-family: Cuprum;
 }
-
 .sendMessageFeild {
     margin-left: 15px;
     display: flex;
     align-items: baseline;
    
 }
-
 .sendMessageInput {
     border: 1px solid navy;
     height: 40px;
@@ -388,11 +367,9 @@ p{
     padding: 2px;
     text-align: center;
 }
-
 .sendMessageInput:hover {
     font-weight: bold;
 }
-
 .sendMessageBtn {
     border-radius: 5%;
     height: 40px;
@@ -403,7 +380,6 @@ p{
     color: white;
     font-size: larger;
 }
-
 .makePostsAside {
     display:flex;
     flex-direction: column;
@@ -412,20 +388,7 @@ p{
     position: fixed;
     float:right;
     margin-left: 55px;
-    margin-top: -95px;
 }
-
-/* .editPostsAside {
-    display:flex;
-    flex-direction: column;
-    word-break: break-word;
-    font-family: Cuprum; 
-    position: relative;
-    float:center;
-    margin-left: 55px;
-    margin-top: -95px;
-} */
-
 .makePostTitle, .editPostTitle {
     font-size: 50px;
     color: navy;
@@ -485,8 +448,10 @@ p{
 .makePostCheck, .editPostCheck {
     align-self: center;
 }
-.IPText{
+.IPText > h3{
     margin-top: 40px;
+    color:rgb(87, 85, 85);
 }
-
-
+.IPText > p{
+    color:gray;
+}
