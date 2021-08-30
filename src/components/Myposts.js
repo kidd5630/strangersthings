@@ -7,7 +7,7 @@ import MakePosts from './MakePosts'
 import { Link } from 'react-router-dom';
 
 const Myposts = ({userToken, postDeleted, setPostDeleted, deleteItem, allPosts, setAllPosts, myPostsList, 
-    setMyPostsList, setSelectedPost, selectedPost, postID}) => {
+    setMyPostsList, setSelectedPost, selectedPost, postID, myUsername}) => {
 
 useEffect(async () => {
     try {
@@ -20,12 +20,13 @@ useEffect(async () => {
     }, [postDeleted]);
    
 
+    console.log("in myposts",  allPosts)
    return (<div >
    <h1 className="profileBodyHeader" > My Posts</h1>
    <div className="myPostsContainer">
-         {myPostsList.map(post => {
+         {allPosts.map(post => {
              const {_id, title, description, price, author: {username}, location, active} = post
-             if(active) {
+             if(active && myUsername === username) {
                 return <div className="allposts myPosts" key={_id}>
            <h3 onClick={() => {
                 postID(_id)

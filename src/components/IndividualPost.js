@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {fetchMyData, BASE_URL, fetchAllPosts, sendMessage, editPost} from '../api';
 
+import { useHistory } from "react-router-dom";
 
 import EditPost from './EditPost';
 
@@ -10,6 +11,8 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
   const [myPostMessages, setMyPostMessages] = useState([])
   const [isActiveEdit, setActiveEdit] = useState("false");
   const [isActiveMessage, setActiveMessage] = useState("true");
+
+  let history = useHistory();
 
   const ToggleClass = () => {
     setActiveEdit(!isActiveEdit);
@@ -61,7 +64,8 @@ const IndividualPost = ({userToken, postDeleted, setPostDeleted, deleteItem, all
             <button className="edit button" onClick={ToggleClass}>Edit</button>
             <button className="delete button"
               onClick={() => {
-                  deleteItem(_id)}}>
+                  deleteItem(_id)
+                  history.push("/profile")}}>
               Delete
             </button>
             </div>

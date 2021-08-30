@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {createPost, BASE_URL} from '../api'
 
 
-const MakePosts = ({userToken, allPosts, setAllPosts, myPostsList, setMyPostsList}) => {
+const MakePosts = ({userToken, allPosts, setAllPosts}) => {
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -26,7 +26,6 @@ const MakePosts = ({userToken, allPosts, setAllPosts, myPostsList, setMyPostsLis
                 if(results.success){
                     const result = results.data.post
                     setAllPosts([...allPosts, result])
-                    setMyPostsList([...myPostsList, result])
                     resetForm();
                 }
             }catch(error) {

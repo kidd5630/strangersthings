@@ -4,7 +4,6 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import {
     Login,
-    // Myposts,
     Profile,
     Register,
     Title,
@@ -90,13 +89,8 @@ const App = () => {
         <Allposts  
             userToken={userToken}
             myUsername={myUsername}
-            postDeleted={postDeleted}
-            setPostDeleted={setPostDeleted}
-            deleteItem={deleteItem}
             allPosts={allPosts}
             setAllPosts={setAllPosts}
-            myPostsList={myPostsList} 
-            setMyPostsList={setMyPostsList}
             selectedPost={selectedPost}
             setSelectedPost={setSelectedPost}
             postID={postID}
@@ -151,8 +145,11 @@ const App = () => {
             setUserToken={setUserToken}
             />
         </Route>
-        <Route exact path="/"><Allposts allPosts={allPosts}
-            setAllPosts={setAllPosts}/></Route>
+        <Route exact path="/">
+            <Allposts 
+                allPosts={allPosts}
+                setAllPosts={setAllPosts}/>
+        </Route>
         </Switch>
         </div>)
         }
