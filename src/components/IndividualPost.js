@@ -85,6 +85,7 @@ const IndividualPost = ({userToken, deleteItem, allPosts, setAllPosts, myUsernam
                       userToken={userToken} 
                       allPosts={allPosts} 
                       setAllPosts={setAllPosts} 
+                      selectedPost={selectedPost}
                       ToggleClass={ToggleClass}/>
                   </div>
                   <div className={`messageFeild-${isActiveMessage ?  "active" : "inactive"}`}>
