@@ -29,7 +29,7 @@ export async function fetchLoginUser(url, username, password) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-           user: {
+            user: {
                "username": username,
                "password": password
            } 
@@ -42,20 +42,16 @@ export async function fetchLoginUser(url, username, password) {
       }   
 }
 
-
 export async function createPost( url, userToken, title, description, price, location, deliver) {
-    
     const postObj = {
         "title": title,
         "description": description,
         "price": price,
         "willDeliver": deliver
     } 
-
     if(location) {
         postObj["location"] = location;
     }
-
     try {
         const response = await fetch(`${url}/posts`, {
             method: "POST",
@@ -91,16 +87,14 @@ export async function deletePost(url, postId, userToken) {
 }
 
 export async function fetchAllPosts(){
-
     try{
-    const response = await fetch(`${BASE_URL}/posts`)
-    const results = await response.json()
-    const posts = await results.data.posts
-    return posts
+        const response = await fetch(`${BASE_URL}/posts`)
+        const results = await response.json()
+        const posts = await results.data.posts
+        return posts
     } catch (error) {
         console.error(error);
     }
-
 }
 
 export async function fetchMyData(url, userToken) { 
@@ -113,7 +107,7 @@ export async function fetchMyData(url, userToken) {
         })
         const results = await response.json()
         return results
-    } catch(error) {
+    } catch (error) {
         console.error(error)
     }
 }
@@ -134,36 +128,28 @@ export async function sendMessage(url, postId, userToken, message) {
         })
         const results = await response.json();
         return results;
-
     } catch(error) {
         console.error(error)
     }
 }
 
 export async function editPost( url, postId, userToken, title, description, price, location, deliver) {
-    
     const postObj = { } 
-
     if(title) {
         postObj["title"] = title;
     }
-
     if(description) {
         postObj["description"] = description;
     }
-
     if(price) {
         postObj["price"] = price;
     }
-
     if(location) {
         postObj["location"] = location;
     }
-
     if(deliver) {
         postObj["willDeliver"] = deliver;
     }
-
     try {
         const response = await fetch(`${url}/posts/${postId}`, {
             method: "PATCH",
@@ -181,4 +167,3 @@ export async function editPost( url, postId, userToken, title, description, pric
         console.error(error);
     } 
 }
-
