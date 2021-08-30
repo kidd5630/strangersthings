@@ -148,6 +148,14 @@ a.profileLink:hover {
     font-family: Cuprum;
 }
 
+.allPostsHeader {
+    height: 10vh;
+    padding-top: 35px;
+    margin-left: 5px;
+    color: navy;
+    font-family: Cuprum;
+}
+
 .allposts{
     display: block;
     flex-wrap: wrap;

@@ -48,6 +48,7 @@ const Profile = ({myUsername, userToken, postDeleted, setPostDeleted, deleteItem
                 setSelectedPost={setSelectedPost}
                 selectedPost={selectedPost}
                 postID={postID}
+                myUsername={myUsername}
                 />
             </Route>
             <Route path={`${match.path}/sent-messages`}>
