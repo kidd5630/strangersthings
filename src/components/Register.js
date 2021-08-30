@@ -7,15 +7,15 @@ import {
 } from '../api';
 
 const Register = ({setUserToken, setMyPassword, myPassword, setMyUsername, myUsername}) => {
+    
     const [confirMmyPassword, setConfirmMyPassword] = useState('');
 
-    let history = useHistory()
+    let history = useHistory();
 
     async function registerUser(event) {
         event.preventDefault();
-       
         if (myPassword !== confirMmyPassword) {
-            alert("please make sure your passwords match")
+            alert("please make sure your passwords match");
         } else {
             try {
                 const results = await fetchResgisterUser(BASE_URL, myUsername, myPassword);
@@ -25,43 +25,40 @@ const Register = ({setUserToken, setMyPassword, myPassword, setMyUsername, myUse
                     setMyUsername(myUsername);
                     localStorage.setItem('userToken', JSON.stringify(token));
                     localStorage.setItem('myUsername', JSON.stringify(myUsername));
-                    history.push("/profile")
+                    history.push("/profile");
                 } else {
-                    alert(results.error.message)
+                    alert(results.error.message);
                 }
             }catch(error) {
-                console.error(error)
-            }
-            
-        }
-        
+                console.error(error);
+            }   
+        }  
     }
     
     return (
-    <section className="registerContainer">
-        <h1 className="registerTitle">Register</h1>
+        <section className="registerContainer">
+            <h1 className="registerTitle">Register</h1>
             <form className="registerForm"onSubmit={registerUser}>
                 <div>
-                    <input type="text" placeholder="Username" 
-                    className="registerInput"
-                    onChange={(event) => {setMyUsername(event.target.value)}} required/>
+                    <input type="text" placeholder="Username" className="registerInput"
+                        onChange={(event) => {setMyUsername(event.target.value)}} required
+                    />
                  </div>
                 <div>
-                    <input type="text" placeholder="Password"
-                    className="registerInput"
-                     onChange={(event) => {setMyPassword(event.target.value)}} required/>
+                    <input type="text" placeholder="Password" className="registerInput"
+                        onChange={(event) => {setMyPassword(event.target.value)}} required
+                    />
                 </div>
                 <div>
-                    <input type="text" placeholder="Confirm Password" 
-                    required
-                    className="registerInput"
-                    onChange={(event) => {setConfirmMyPassword(event.target.value)}}/>
+                    <input type="text" placeholder="Confirm Password" className="registerInput"
+                        onChange={(event) => {setConfirmMyPassword(event.target.value)}} required
+                    />
                 </div>
-                <button 
-                className="registerbtn"
-                type="submit">REGISTER</button>
+                <button className="registerbtn" type="submit">
+                    REGISTER
+                </button>
             </form>
-    </section>
+        </section>
     )
 }
 

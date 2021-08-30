@@ -10,29 +10,25 @@ import {
 
 const Login = ({setMyPassword, myPassword, setMyUsername, myUsername, setUserToken}) => {
 
-let history = useHistory()
+    let history = useHistory();
+    
     async function loginUser(event) {
-        
         event.preventDefault();
-
         try {
             const results = await fetchLoginUser(BASE_URL, myUsername, myPassword);
             if(results.success) {
-                const token = await results.data.token
-                setUserToken(token)
-                setMyUsername(myUsername)
+                const token = await results.data.token;
+                setUserToken(token);
+                setMyUsername(myUsername);
                 localStorage.setItem('userToken', JSON.stringify(token));
                 localStorage.setItem('myUsername', JSON.stringify(myUsername));
-                history.push("/profile")
+                history.push("/profile");
             } else {
-                alert(results.error.message)
+                alert(results.error.message);
             }
-            
-        }catch(error) {
-            console.error(error)
-        }
-        
-        
+        } catch(error) {
+            console.error(error);
+        } 
     }
 
     return (
@@ -49,7 +45,7 @@ let history = useHistory()
                     <button className="loginBtn"type="submit">LOGIN</button>
                 </form>
         </section>
-        )
-    
+    ) 
 }
+
 export default Login; 
