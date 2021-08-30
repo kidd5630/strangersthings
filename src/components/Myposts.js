@@ -51,7 +51,6 @@ const Myposts = ({userToken, postDeleted, allPosts, setAllPosts, setSelectedPost
                     } else {
                         return
                     }
-    
                 })}
                 <div className="allPostsAside">
                     <MakePosts 
