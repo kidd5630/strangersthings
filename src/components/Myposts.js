@@ -43,7 +43,7 @@ useEffect(async () => {
                onClick={() => {
                 postID(_id)
                 setSelectedPost(_id)
-               }} className="postLi myPosts"> 
+               }} className="postLi"> 
                <Link to={`/post/${_id}`} className="postsLink myPosts">Take Me To My Post</Link> 
                </li>
                </ul>

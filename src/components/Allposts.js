@@ -24,8 +24,8 @@ const Allposts = ({userToken, myUsername, allPosts, setAllPosts, setSelectedPost
       <>
       <div className="allPostsContainer">
         <div className="allPostsHeader">
-          <h1> Search Posts</h1>
-          <input className="searchBar" type="text" placeholder="Search" 
+          <h1 className="searchTitle"> Search Posts</h1>
+          <input className="searchBar" type="text"  placeholder="Search" 
             onChange={(event) => { setSearchTerm(event.target.value)}}/>
         </div>
         {allPosts && postsToDisplay.map(post => {
